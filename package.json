@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "movies-23",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://TatianaSkl.github.io/movies-23",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /movies-23/"
   },
   "repository": {
     "type": "git",
