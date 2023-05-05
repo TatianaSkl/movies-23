@@ -43,18 +43,18 @@ margin-bottom: 16px
     box-sizing: border-box;
   list-style: none;
   display: flex;
-flex-direction: column;
 align-items: flex-start;
 padding: 0px;
 gap: 16px;
-
+justify-content: center;
 position: absolute;
-width: 464px;
-height: 242px;
+
 left: 32px;
 top: 229px;
-
- 
+}
+.text-li{
+width: 464px;
+height: 242px;   
 }
 .btn-hero{
     padding: 12px 24px;
@@ -66,6 +66,7 @@ left: 32px;
 }
 
 .img-hero{
+    display: flex;
 width: 1188.6px;
 height: 1057.01px;
 left: 492.67px;
