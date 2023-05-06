@@ -3,9 +3,32 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '2c2e924badab09018363b97151da7944';
 
-async function searchMovies(query) {
-  const response = await axios.get(`${BASE_URL}search/movie?api_key=${API_KEY}&query=${query}`);
-  return response.data;
+class CatalogApiService {
+  constructor() {
+    this.query = '';
+    this.page = 1;
+  }
+  async searchMovies() {
+    const response = await axios.get(
+      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.query}&page=${this.page}`
+    );
+    this.incrementPage();
+    return response.data;
+  }
+  async getWeekTrendingMoviesInCatalog() {
+    const response = await axios.get(
+      `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${this.page}`
+    );
+    this.incrementPage();
+    return response.data;
+  }
+  incrementPage() {
+    this.page += 1;
+  }
+
+  resetPage() {
+    this.page = 1;
+  }
 }
 
 async function getMovieDetails(movieId) {
@@ -34,7 +57,7 @@ async function getDayTrendingMovies() {
 }
 
 export {
-  searchMovies,
+  CatalogApiService,
   getMovieDetails,
   getMovieVideos,
   getUpcomingMovies,
