@@ -1,0 +1,1 @@
+import { renderTrendMovie } from "./scripts/getWeekTrendingMoviesInCatalog";
