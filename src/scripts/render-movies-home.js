@@ -17,19 +17,19 @@ export function renderUpcoming(renderFn, showFn) {
 export function showTrending(movies) {
   return movies.map(
     ({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
-      return `<li class="films__item" data-id=${id}>
-                <div class="films__img">
-                <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
-        </div>
-                <div class="films__description">
-                  <p class="films__title">${title}</p>
-                  <div class="films__meta">
-                    <p class="films__genres">${genre_ids}</p>
-                    <p class="films__data">${release_date}</p>
-                    <span class="films__rating">${vote_average}</span>
-                  </div>
+      return `
+      <li class="trending__item" data-id=${id}>
+            <img class="trending__img" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
+            <div class="trending__description">
+                <div class="trending__meta">
+                <div class="w-60">  
+                    <p >${title}</p>
+                    <p >${genre_ids} | ${release_date.split('-')[0]}</p>
                 </div>
-            </li>`;
+                <div class="trending__rating pull-right w-40">${vote_average}</div>
+                </div>
+            </div>
+        </li>`;
     }
   );
 }
@@ -47,7 +47,7 @@ export function showUpcoming(movie) {
   } = movie;
   return `<div>
      <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
-     <div>
+     <div class="upcoming__item">
      <dl>
      <dt>${title}</dt>
 

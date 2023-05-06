@@ -1,2 +1,2 @@
 import '../src/scripts/home';
-import '../src/scripts/render-movies';
+import '../src/scripts/render-movies-home';
