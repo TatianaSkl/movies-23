@@ -1,1 +1,249 @@
+a {
+  text-decoration: none;
+}
 
+.page-header {
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  background: #000000;
+  min-width: 530px;
+
+  @include tablet {
+    max-width: 768px;
+    height: 60px;
+    display: flex;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    height: 60px;
+    display: flex;
+  }
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  inline-size: fit-content;
+  margin: 0 auto;
+}
+.site-nav {
+  display: none;
+
+  @include tablet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @include desktop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.site-nav__list {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-nav__item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.site-nav__item {
+  display: block;
+  @include tablet {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+}
+
+.site-nav__link {
+  color: var(--additional-color);
+  cursor: pointer;
+
+  @include tablet {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+  }
+}
+
+.site-nav__link.current {
+  color: var(--accent-color);
+}
+
+.page-header__icon {
+  width: 32px;
+  height: 32px;
+
+  @include desktop {
+    margin-left: 2.97px;
+  }
+}
+
+.page-header__logo {
+  display: none;
+  color: var(--second-color);
+
+  @include tablet {
+    display: block;
+    margin-right: 59px;
+    margin-left: 8px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.16;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  @include desktop {
+    margin-right: 307px;
+    margin-left: 8px;
+    
+  }
+}
+
+.switch-theme-button {
+  background-color: transparent;
+  border: 0;
+  margin-left: 417px;
+  background-image: url(/src/images/mobile/switch-b-mob.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 38px;
+  height: 16px;
+
+  @include tablet {
+    margin-left: 175px;
+    width: 54px;
+    height: 20px;
+  }
+  @include desktop {
+    margin-left: 417px;
+    width: 60px;
+    height: 24px;
+    cursor: pointer;
+  }
+}
+body.light .switch-theme-button {
+  background-image: url(/src/images/mobile/switch-w-mob.png);
+}
+
+.mobile-menu {
+
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
+  }
+}
+
+.mobile-menu__logo-image {
+}
+
+.menu-button {
+  background-color: #000000;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 238px;
+
+  padding: 9px;
+  color: var(--additional-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+}
+
+.mobile-menu__nav-list {
+  list-style: none;
+}
+
+.mobile-menu__item {
+}
+
+.site-nav__link {
+}
+
+@media (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+  .switch-theme-button {
+    background-image: url(/src/images/mobile/switch-b-mob-2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .switch-theme-button {
+    background-image: url(/src/images/tablet/switch-b-tab.png);
+  }
+
+  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 768px) and (min-resolution: 192dpi),
+  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    .switch-theme-button {
+      background-image: url(/src/images/tablet/switch-b-tab-2x.png);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .switch-theme-button {
+    background-image: url(/src/images/desktop/switch-b-des.png);
+  }
+
+  @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1200px) and (min-resolution: 192dpi),
+  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+    .switch-theme-button {
+      background-image: url(/src/images/desktop/switch-b-des-2x.png);
+    }
+  }
+}
+
+// Light theme responsive images
+@media (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+  body.light .switch-theme-button {
+    background-image: url(/src/images/mobile/switch-w-mob-2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body.light .switch-theme-button {
+    background-image: url(/src/images/tablet/switch-w-tab.png);
+  }
+
+  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 768px) and (min-resolution: 192dpi),
+  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    body.light .switch-theme-button {
+      background-image: url(/src/images/tablet/switch-w-tab-2x.png);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body.light .switch-theme-button {
+    background-image: url(/src/images/desktop/switch-w-des.png);
+  }
+
+  @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 1200px) and (min-resolution: 192dpi),
+  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+    body.light .switch-theme-button {
+      background-image: url(/src/images/desktop/switch-w-des-2x.png);
+    }
+  }
+}
