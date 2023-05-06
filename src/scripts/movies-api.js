@@ -44,8 +44,7 @@ async function getUpcomingMovies() {
     const response = await axios.get(
       `${BASE_URL}movie/upcoming?api_key=${API_KEY}`
     );
-    console.log(response.data);
-    const hui = 123;
+    return response.data;
   } catch (error) {
     console.error(error);
   }
@@ -56,7 +55,7 @@ async function getTrendingMovies() {
     const response = await axios.get(
       `${BASE_URL}trending/movie/week?api_key=${API_KEY}`
     );
-    console.log(response.data);
+    return response.data;
   } catch (error) {
     console.error(error);
   }
