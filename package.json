@@ -20,11 +20,13 @@
   "dependencies": {
     "axios": "^1.4.0",
     "basiclightbox": "^5.0.4",
+    "ejs": "^3.1.9",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "slick": "^1.12.2",
-    "tui-pagination": "^3.4.1"
+    "tui-pagination": "^3.4.1",
+    "express": "^3.1.9"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.6.0",
