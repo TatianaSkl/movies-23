@@ -22,7 +22,7 @@ const movieAPI = new CatalogApiService();
 export async function renderTrendMovie() {
   const data = await movieAPI.getWeekTrendingMoviesInCatalog();
   const results = await data.results;
-  console.log(results);
+  //   console.log(results);
 
   try {
     if (results !== 0) {

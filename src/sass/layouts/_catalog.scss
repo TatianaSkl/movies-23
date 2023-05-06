@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-input::placeholder { 
+input::placeholder {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -22,12 +22,12 @@ input::placeholder {
   color: var(--second-color);
   background-color: transparent;
 
-  @include tablet{
+  @include tablet {
     max-width: 204px;
     padding: 12px 140px 12px 20px;
   }
 
-  @include desktop{
+  @include desktop {
     max-width: 334px;
   }
 }
@@ -42,23 +42,31 @@ input::placeholder {
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border: transparent;
 
-  @include tablet{
+  @include tablet {
     width: 44px;
     height: 44px;
   }
 }
 
-.search-btn__icon{
-    fill: none;
-    stroke: var(--primary-color);
+.search-btn__icon {
+  fill: none;
+  stroke: var(--primary-color);
 }
 
-.catalog{
-    text-align: center;
-    justify-content: center;
+// .catalog{
+//     text-align: center;
+//     justify-content: center;
+// }
+
+.catalog__list {
+  @include tablet {
+    display: flex;
+    gap: 28px 15px;
+    flex-wrap: wrap;
+  }
 }
 
-.pagination-box{
-    justify-content: center;
-    text-align: center;
+.pagination-box {
+  justify-content: center;
+  text-align: center;
 }
