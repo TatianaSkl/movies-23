@@ -30,7 +30,20 @@
   <main>
     <include src="./partials/hero-library.html"></include>
     <div>
-      <!-- <button type="button" class="btn btn-library">Search movie</button> -->
+       <div>
+        <section class="library-cards">
+          <div class="library container">
+            <ul class="library-cards__list"></ul>
+          </div>
+        </section>
+        <div class="alert__message container">
+          <h2 class="library-cards__sorry">
+            OOPS...<br />
+            We are very sorry!<br />
+            You don’t have any movies at your library.
+          </h2>
+          <button type="button" class="library-cards__btn btn">Search movie</button>
+        </div>
     </div>
   </main>
   <include src="./partials/footer.html"></include>
