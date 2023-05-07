@@ -5,24 +5,9 @@ const movieList = document.querySelector('.catalog__list');
 
 const movieAPI = new CatalogApiService();
 
-// export function renderTrendMovie() {
-//   movieAPI
-//     .getWeekTrendingMoviesInCatalog()
-//     .then(data => {
-//       const markupTrendMovies = createMarkupFilmsList(data);
-
-//       console.log(data);
-//       movieList.innerHTML = markupTrendMovies;
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// }
-
 export async function renderTrendMovie() {
   const data = await movieAPI.getWeekTrendingMoviesInCatalog();
-  const results = await data.results;
-  //   console.log(results);
+  const results = await data.results.slice(0, 10);
 
   try {
     if (results !== 0) {
@@ -35,3 +20,4 @@ export async function renderTrendMovie() {
 }
 
 renderTrendMovie();
+
