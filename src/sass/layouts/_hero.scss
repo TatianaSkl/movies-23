@@ -21,7 +21,7 @@
     height: 372px;
     padding-top: 62px;
 
-    background-image: url(../images/tablet/hero-b-tab.png),
+    background-image: var(--hero-subtract-clr),
       linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
       url(../images/tablet/hero-bg-tab.jpg);
 
