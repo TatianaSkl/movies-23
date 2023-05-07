@@ -1,14 +1,12 @@
-let switchTheme = () => {
-  let mainEl = document.documentElement;
-  let dataTheme = mainEl.getAttribute('data-theme'),
+let switchDarkLight = () => {
+  let switcherEl = document.documentElement;
+  let dataTheme = switcherEl.getAttribute('data-theme'),
     newTheme;
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
 
-  mainEl.setAttribute('data-theme', newTheme);
-
-  localStorage.setItem('theme', newTheme);
+  switcherEl.setAttribute('data-theme', newTheme); 
 };
 
 document
   .querySelector('#theme-switcher')
-  .addEventListener('click', switchTheme);
+  .addEventListener('click', switchDarkLight);

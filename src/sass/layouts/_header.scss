@@ -344,24 +344,24 @@ a {
 
     width: 10px;
     height: 10px;
-    transform: translateX(var(--switcher-bow-pos-mob))
-      rotate(var(--switcher-bow-rotation));
+    transform: translateX(var(--switcher-sf-pos-mob))
+      rotate(var(--switcher-sf-rotation));
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @include tablet {
       width: 14px;
       height: 14px;
       top: 19%;
-      transform: translateX(var(--switcher-bow-pos-tab))
-        rotate(var(--switcher-bow-rotation));
+      transform: translateX(var(--switcher-sf-pos-tab))
+        rotate(var(--switcher-sf-rotation));
     }
 
     @include desktop {
       top: 19%;
       width: 15px;
       height: 15px;
-      transform: translateX(var(--switcher-bow-pos-desk))
-        rotate(var(--switcher-bow-rotation));
+      transform: translateX(var(--switcher-sf-pos-desk))
+        rotate(var(--switcher-sf-rotation));
     }
   }
 }
