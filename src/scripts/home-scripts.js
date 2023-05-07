@@ -1,5 +1,12 @@
-import { getWeekTrendingMovies, getUpcomingMovies } from './movies-api';
+import {
+  getWeekTrendingMovies,
+  getUpcomingMovies,
+  getGenres,
+} from './movies-api';
 import { renderTrending, renderUpcoming } from './render-movies-home';
 import { showTrending, showUpcoming } from './render-movies-home';
-renderTrending(getWeekTrendingMovies, showTrending);
-renderUpcoming(getUpcomingMovies, showUpcoming);
+getGenres().then(data => {
+  global.genres = data;
+  renderTrending(getWeekTrendingMovies, showTrending);
+  renderUpcoming(getUpcomingMovies, showUpcoming);
+});

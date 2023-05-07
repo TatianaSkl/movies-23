@@ -69,17 +69,24 @@
 
 .trending__meta {
   display: flex;
+  flex-direction: column;
   position: absolute;
   font-weight: 500;
   font-size: 20px;
   text-transform: uppercase;
   line-height: calc(20 / 23);
-  bottom: 50;
+  bottom: 0;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  // background-color: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
   padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 .pull-right {
@@ -92,4 +99,31 @@
 
 .w-40 {
   width: 40%;
+}
+
+.w-100 {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.upcoming__item {
+  display: flex;
+}
+
+.upcoming__img {
+  max-width: 60%;
+  display: block;
+  object-fit: contain;
+}
+
+.upcoming__meta th {
+  text-align: left;
+}
+
+.table {
+  padding: 20px;
+}
+
+#btn__upcoming {
+  margin-left: 20px;
 }
