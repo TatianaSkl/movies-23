@@ -5,6 +5,8 @@ let switchDarkLight = () => {
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
 
   switcherEl.setAttribute('data-theme', newTheme); 
+
+  localStorage.setItem('theme', newTheme);
 };
 
 document

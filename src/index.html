@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cinemania</title>
 
+  <meta name="description" content="Cinemania. Movie. Best movies. Today movie selection. Weekly cinema trends.">
+  <meta name="robots" content="index, follow">
+
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +26,15 @@
 
   <!-- base style -->
   <link rel="stylesheet" href="./sass/index.scss">
+
+  <script>
+    let localS = localStorage.getItem('theme');
+
+    if (localS === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  <script type="module" src="./index.js"></script>
 
 </head>
 
