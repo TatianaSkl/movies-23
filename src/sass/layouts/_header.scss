@@ -53,9 +53,9 @@ a {
 .site-nav__item:not(:last-child) {
   margin-right: 40px;
 }
-// .site-nav__item:last-child {
-//    margin-right: 40px;
-// }
+.site-nav__item:last-child {
+   margin-right: 100px;
+}
 
 .site-nav__item {
   display: block;

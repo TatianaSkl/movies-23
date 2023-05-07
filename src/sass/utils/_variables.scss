@@ -28,9 +28,7 @@
 
 
 :root[data-theme='dark'] {
-  --page-bgc: #{var(--primary-color)};
-  --hero-bgc-clr: #{var(--further-color)};
-  --hero-title-clr: #{var(--second-color)};
+  --page-bgd: #{var(--primary-color)};
   --hero-bgd: url('/src/images/desktop/hero-b-des.png');
   --hero-bgd-retina: url('/src/images/desktop/hero-b-des-2x.png');
   --primary-text-clr: #{var(--second-color)};
@@ -51,9 +49,7 @@
 }
 
 :root[data-theme='light'] {
-  --page-bgc: #{var(--second-color)};
-  --hero-bgc-clr: #{var(--supplemental-color)};
-  --hero-title-clr: #{var(--primary-color)};
+  --page-bgd: #{var(--second-color)};
   --hero-bgd: url('/src/images/desktop/hero-w-des.png');
   --hero-bgd-retina: url('/src/images/desktop/hero-w-des-2x.png');
   --primary-text-clr: #{var(--further-color)};
