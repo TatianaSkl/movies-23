@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cinemania</title>
+
+  <meta name="description" content="Cinemania. Movie. Best movies. Today movie selection. Weekly cinema trends.">
+  <meta name="robots" content="index, follow">
 
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +26,15 @@
 
   <!-- base style -->
   <link rel="stylesheet" href="./sass/index.scss">
+
+  <script>
+    let localS = localStorage.getItem('theme');
+
+    if (localS === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  <script type="module" src="./index.js"></script>
 
 </head>
 
@@ -42,6 +54,7 @@
   crossorigin="anonymous"
 ></script>
 <script src="./scripts/scroll-to-top.js"></script>
+<script src="./scripts/theme-switch.js"></script>
 
   <!-- base js -->
   <script type="module" src="./index.js"></script>

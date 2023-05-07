@@ -21,12 +21,12 @@ position: relative;
     height: 372px;
     padding-top: 62px;
 
-    background-image: url(../images/tablet/hero-b-tab.png),
+    background-image: var(--hero-bgd),
       linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
       url(../images/tablet/hero-bg-tab.jpg);
 
     @include retina {
-      background-image: url(../images/tablet/hero-b-tab-2x.png),
+      background-image: var(--hero-bgd-retina),
         linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
         url(../images/tablet/hero-bg-tab-2x.jpg);
     }
@@ -37,12 +37,12 @@ position: relative;
     height: 660px;
     padding-top: 169px;
 
-    background-image: url(../images/desktop/hero-b-des.png),
+    background-image: var(--hero-bgd),
       linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
       url(../images/desktop/hero-bg-des.jpg);
 
     @include retina {
-      background-image: url(../images/desktop/hero-b-des-2x.png),
+      background-image: var(--hero-bgd-retina),
         linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
         url(../images/desktop/hero-bg-des-2x.jpg);
     }
