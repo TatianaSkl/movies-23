@@ -1,7 +1,7 @@
 body {
   font-family: var(--main-font);
-  color: var(--second-color);
-  background-color: var(--primary-color);
+  color: var(--primary-text-clr);
+  background-color: var(--page-bgc);
 
   &.modal-open {
     overflow: hidden;

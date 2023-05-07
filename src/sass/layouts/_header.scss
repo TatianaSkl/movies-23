@@ -6,7 +6,7 @@ a {
   margin-right: auto;
   margin-left: auto;
   position: relative;
-  background: #000000;
+
   // min-width: 530px;
 
   @include tablet {
@@ -88,7 +88,7 @@ a {
 
 .page-header__logo {
   display: none;
-  color: var(--second-color);
+  color: var(--muted-text-clr);
 
   @include tablet {
     display: block;
@@ -107,33 +107,33 @@ a {
   }
 }
 
-.switch-theme-button {
-  background-color: transparent;
-  border: 0;
+// .switch-theme-button {
+//   background-color: transparent;
+//   border: 0;
   
-  background-image: url(/src/images/mobile/switch-b-mob.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 38px;
-  height: 16px;
-  margin-left: 210px;
+//   background-image: url(/src/images/mobile/switch-b-mob.png);
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   width: 38px;
+//   height: 16px;
+//   margin-left: 210px;
 
-  @include tablet {
-    margin-left: 175px;
-    width: 54px;
-    height: 20px;
-    margin-left: 417px;
-  }
-  @include desktop {
-    margin-left: 417px;
-    width: 60px;
-    height: 24px;
-    cursor: pointer;
-  }
-}
-body.light .switch-theme-button {
-  background-image: url(/src/images/mobile/switch-w-mob.png);
-}
+//   @include tablet {
+//     margin-left: 175px;
+//     width: 54px;
+//     height: 20px;
+//     margin-left: 417px;
+//   }
+//   @include desktop {
+//     margin-left: 417px;
+//     width: 60px;
+//     height: 24px;
+//     cursor: pointer;
+//   }
+// }
+// body.light .switch-theme-button {
+//   background-image: url(/src/images/mobile/switch-w-mob.png);
+// }
 
 .mobile-menu {
 
@@ -172,81 +172,209 @@ body.light .switch-theme-button {
 .site-nav__link {
 }
 
-@media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
-  .switch-theme-button {
-    background-image: url(/src/images/mobile/switch-b-mob-2x.png);
-  }
-}
+// @media (min-device-pixel-ratio: 2),
+// (-webkit-min-device-pixel-ratio: 2),
+// (min-resolution: 192dpi),
+// (min-resolution: 2dppx) {
+//   .switch-theme-button {
+//     background-image: url(/src/images/mobile/switch-b-mob-2x.png);
+//   }
+// }
 
-@media screen and (min-width: 768px) {
-  .switch-theme-button {
-    background-image: url(/src/images/tablet/switch-b-tab.png);
+// @media screen and (min-width: 768px) {
+//   .switch-theme-button {
+//     background-image: url(/src/images/tablet/switch-b-tab.png);
+//   }
+
+//   @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+//   screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+//   screen and (min-width: 768px) and (min-resolution: 192dpi),
+//   screen and (min-width: 768px) and (min-resolution: 2dppx) {
+//     .switch-theme-button {
+//       background-image: url(/src/images/tablet/switch-b-tab-2x.png);
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 1200px) {
+//   .switch-theme-button {
+//     background-image: url(/src/images/desktop/switch-b-des.png);
+//   }
+
+//   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
+//   screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+//   screen and (min-width: 1200px) and (min-resolution: 192dpi),
+//   screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+//     .switch-theme-button {
+//       background-image: url(/src/images/desktop/switch-b-des-2x.png);
+//     }
+//   }
+// }
+
+// /* Light theme responsive images */
+// @media (min-device-pixel-ratio: 2),
+// (-webkit-min-device-pixel-ratio: 2),
+// (min-resolution: 192dpi),
+// (min-resolution: 2dppx) {
+//   body.light .switch-theme-button {
+//     background-image: url(/src/images/mobile/switch-w-mob-2x.png);
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   body.light .switch-theme-button {
+//     background-image: url(/src/images/tablet/switch-w-tab.png);
+//   }
+
+//   @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+//   screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+//   screen and (min-width: 768px) and (min-resolution: 192dpi),
+//   screen and (min-width: 768px) and (min-resolution: 2dppx) {
+//     body.light .switch-theme-button {
+//       background-image: url(/src/images/tablet/switch-w-tab-2x.png);
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 1200px) {
+//   body.light .switch-theme-button {
+//     background-image: url(/src/images/desktop/switch-w-des.png);
+//   }
+
+//   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
+//   screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+//   screen and (min-width: 1200px) and (min-resolution: 192dpi),
+//   screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+//     body.light .switch-theme-button {
+//       background-image: url(/src/images/desktop/switch-w-des-2x.png);
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ++++++++++++ * THEME TOGGLE ++++++++++++++++++++
+
+.header__theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  width: 38px;
+  height: 16px;
+  background-color: var(--accent-color);
+  background: var( --linear-gradient-down);
+  border-radius: 194px;
+  padding: 5px;
+  position: relative;
+
+  @include tablet {
+    width: 54px;
+    height: 20px;
+    margin-left: auto;
+    gap: 24px;
   }
 
-  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (min-resolution: 2dppx) {
-    .switch-theme-button {
-      background-image: url(/src/images/tablet/switch-b-tab-2x.png);
+  @include desktop {
+    width: 60px;
+    height: 24px;
+    gap: 24px;
+  }
+
+  &::before {
+    content: '';
+    border-radius: 50px;
+    background-color: var(--second-color);
+    position: absolute;
+    top: 12%;
+    z-index: 2;
+
+    width: 12px;
+    height: 12px;
+    transform: translateX(var(--switcher-pos-mob));
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include tablet {
+      width: 16px;
+      height: 16px;
+      transform: translateX(var(--switcher-pos-tab));
+    }
+
+    @include desktop {
+      width: 18px;
+      height: 18px;
+      transform: translateX(var(--switcher-pos-desk));
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 17%;
+    left: 40px;
+    z-index: 2;
+
+    border-width: 0 2px 0 0;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: var(--accent-color);
+    background-color: transparent;
+
+    width: 10px;
+    height: 10px;
+    transform: translateX(var(--switcher-bow-pos-mob))
+      rotate(var(--switcher-bow-rotaion));
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include tablet {
+      width: 14px;
+      height: 14px;
+      top: 19%;
+      transform: translateX(var(--switcher-bow-pos-tab))
+        rotate(var(--switcher-bow-rotaion));
+    }
+
+    @include desktop {
+      top: 19%;
+      width: 15px;
+      height: 15px;
+      transform: translateX(var(--switcher-bow-pos-desk))
+        rotate(var(--switcher-bow-rotaion));
     }
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .switch-theme-button {
-    background-image: url(/src/images/desktop/switch-b-des.png);
-  }
+#icon-moon,
+#icon-sun {
+  width: 8px;
+  height: 8px;
 
-  @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (min-resolution: 192dpi),
-  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
-    .switch-theme-button {
-      background-image: url(/src/images/desktop/switch-b-des-2x.png);
-    }
+  @include tablet {
+    width: 11px;
+    height: 11px;
+  }
+  @include desktop {
+    width: 13px;
+    height: 13px;
   }
 }
 
-/* Light theme responsive images */
-@media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
-  body.light .switch-theme-button {
-    background-image: url(/src/images/mobile/switch-w-mob-2x.png);
-  }
-}
 
-@media screen and (min-width: 768px) {
-  body.light .switch-theme-button {
-    background-image: url(/src/images/tablet/switch-w-tab.png);
-  }
 
-  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (min-resolution: 2dppx) {
-    body.light .switch-theme-button {
-      background-image: url(/src/images/tablet/switch-w-tab-2x.png);
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  body.light .switch-theme-button {
-    background-image: url(/src/images/desktop/switch-w-des.png);
-  }
-
-  @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (min-resolution: 192dpi),
-  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
-    body.light .switch-theme-button {
-      background-image: url(/src/images/desktop/switch-w-des-2x.png);
-    }
-  }
-}
