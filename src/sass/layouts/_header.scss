@@ -53,6 +53,9 @@ a {
 .site-nav__item:not(:last-child) {
   margin-right: 40px;
 }
+// .site-nav__item:last-child {
+//    margin-right: 40px;
+// }
 
 .site-nav__item {
   display: block;
@@ -270,7 +273,7 @@ a {
 
 
 
-// ++++++++++++ * THEME TOGGLE ++++++++++++++++++++
+// ++++++++++++ * THEME SWITCH ++++++++++++++++++++
 
 .header__theme-switcher {
   display: flex;
@@ -284,6 +287,8 @@ a {
   border-radius: 194px;
   padding: 5px;
   position: relative;
+  top: 0;
+  right: 0;
 
   @include tablet {
     width: 54px;
@@ -303,7 +308,7 @@ a {
     border-radius: 50px;
     background-color: var(--second-color);
     position: absolute;
-    top: 12%;
+    top: 12.5%;
     z-index: 2;
 
     width: 12px;
@@ -327,7 +332,7 @@ a {
   &::after {
     content: '';
     position: absolute;
-    top: 17%;
+    top: 17.5%;
     left: 40px;
     z-index: 2;
 
@@ -340,7 +345,7 @@ a {
     width: 10px;
     height: 10px;
     transform: translateX(var(--switcher-bow-pos-mob))
-      rotate(var(--switcher-bow-rotaion));
+      rotate(var(--switcher-bow-rotation));
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @include tablet {
@@ -348,7 +353,7 @@ a {
       height: 14px;
       top: 19%;
       transform: translateX(var(--switcher-bow-pos-tab))
-        rotate(var(--switcher-bow-rotaion));
+        rotate(var(--switcher-bow-rotation));
     }
 
     @include desktop {
@@ -356,7 +361,7 @@ a {
       width: 15px;
       height: 15px;
       transform: translateX(var(--switcher-bow-pos-desk))
-        rotate(var(--switcher-bow-rotaion));
+        rotate(var(--switcher-bow-rotation));
     }
   }
 }
