@@ -4,10 +4,11 @@ import { CatalogApiService } from './movies-api';
 
 const TUI_VISIBLE_PAGES = 5;
 const moviePage = new CatalogApiService();
+const pagination = document.querySelector('#pagination');
 
 export function createPagination(totalItems, visiblePages) {
   const options = {
-    totalItems: 200,
+    totalItems,
     itemsPerPage: 20,
     visiblePages: visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES,
     page: 1,
@@ -36,7 +37,7 @@ export function createPagination(totalItems, visiblePages) {
   const pagination = new Pagination('pagination', options);
 
   if (visiblePages > 1) {
-    pagination.style.display = 'block';
+    // pagination.style.display = 'block';
   } else {
     pagination.style.display = 'none';
   }
