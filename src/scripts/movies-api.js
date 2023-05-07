@@ -32,27 +32,44 @@ class CatalogApiService {
 }
 
 async function getMovieDetails(movieId) {
-  const response = await axios.get(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
+  const response = await axios.get(
+    `${BASE_URL}movie/${movieId}?api_key=${API_KEY}`
+  );
   return response.data;
 }
 
 async function getMovieVideos(movieId) {
-  const response = await axios.get(`${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`);
+  const response = await axios.get(
+    `${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`
+  );
   return response.data;
 }
 
 async function getUpcomingMovies() {
-  const response = await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}`);
+  const response = await axios.get(
+    `${BASE_URL}movie/upcoming?api_key=${API_KEY}`
+  );
   return response.data;
 }
 
 async function getWeekTrendingMovies() {
-  const response = await axios.get(`${BASE_URL}trending/movie/week?api_key=${API_KEY}`);
+  const response = await axios.get(
+    `${BASE_URL}trending/movie/week?api_key=${API_KEY}`
+  );
   return response.data;
 }
 
 async function getDayTrendingMovies() {
-  const response = await axios.get(`${BASE_URL}trending/movie/day?api_key=${API_KEY}`);
+  const response = await axios.get(
+    `${BASE_URL}trending/movie/day?api_key=${API_KEY}`
+  );
+  return response.data;
+}
+
+async function getGenres() {
+  const response = await axios.get(
+    `${BASE_URL}genre/movie/list?api_key=${API_KEY}`
+  );
   return response.data;
 }
 
@@ -63,4 +80,5 @@ export {
   getUpcomingMovies,
   getWeekTrendingMovies,
   getDayTrendingMovies,
+  getGenres,
 };

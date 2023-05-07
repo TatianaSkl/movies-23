@@ -1,12 +1,5 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-close" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.3333" d="M23 23l-14-14M23 9l-14 14"></path>
-</symbol>
-<symbol id="icon-search" viewBox="0 0 32 32">
-<path  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.0800" d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.0800" d="M28 28l-5.8-5.8"></path>
-</symbol>
 <symbol id="icon-logo_cinemania" viewBox="0 0 41 32">
 <path fill="#292b2a" style="fill: var(--color1, #292b2a)" d="M23.574 22.381l-3.283-4.655c0 0-3.604-5.1-3.611-5.095-0.418-0.158-0.846-0.287-1.281-0.385l0.879 1.252 0.636 0.914 0.724 1.026 1.307 1.85 0.903 1.275 0.94 1.334 1.159 1.628 0.302 0.453-1.219 0.867-1.326 0.934-2.651 1.886-3.047 2.155-3.402 2.422 1.191 0.333 11.779-8.196z"></path>
 <path fill="#b5b5b5" style="fill: var(--color2, #b5b5b5)" d="M5.108 22.705l-0.661-0.894 1.758-1.153 1.594-1.136-0.107-0.215 1.51 0.526-4.094 2.872z"></path>

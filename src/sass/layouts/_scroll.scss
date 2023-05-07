@@ -1,1 +1,42 @@
+.back-to-top {
+  border-radius: 50%;
+  position: fixed;
+  bottom: -20px;
+  right: 20px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: 0.3s all;
+  opacity: 0;
 
+  width: 60px;
+  height: 60px;
+  background-image: url(..//../images/desktop/icon-arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60px 60px;
+  transform: rotate(270deg);
+
+  @include tablet {
+    bottom: -30px;
+    right: 30px;
+
+    width: 70px;
+    height: 70px;
+    background-size: 70px 70px;
+  }
+
+  @include desktop {
+    bottom: -50px;
+    right: 50px;
+
+    width: 80px;
+    height: 80px;
+    background-size: 80px 80px;
+  }
+}
+
+.back-to-top.active {
+  opacity: 1;
+  bottom: 30px;
+  transition: 0.3s all;
+}
