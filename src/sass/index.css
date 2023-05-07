@@ -295,6 +295,7 @@ a {
 .site-nav__link {
   color: var(--additional-color);
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (min-width: 768px) {
   .site-nav__link {
@@ -306,6 +307,16 @@ a {
 
 .site-nav__link.current {
   color: var(--accent-color);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus {
+  color: var(--accent-color);
+}
+
+.page-header__link {
+  display: flex;
+  align-items: center;
 }
 
 .page-header__icon {
@@ -321,6 +332,16 @@ a {
 .page-header__logo {
   display: none;
   color: var(--second-color);
+  transition: 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: flicker 2.5s infinite alternate;
+}
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #ebc3a7, 0 0 11px #ebc3a7, 0 0 19px #ebc3a7, 0 0 40px #f87719, 0 0 80px #f87719, 0 0 90px #f87719, 0 0 100px #f87719, 0 0 150px #f87719;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
 }
 @media screen and (min-width: 768px) {
   .page-header__logo {
@@ -341,6 +362,12 @@ a {
   }
 }
 
+.page-header__logo:hover,
+.page-header__logo:focus {
+  color: var(--second-color);
+  transform: scale(1.1);
+}
+
 .switch-theme-button {
   background-color: transparent;
   border: 0;
@@ -356,7 +383,7 @@ a {
     margin-left: 175px;
     width: 54px;
     height: 20px;
-    margin-left: 417px;
+    margin-left: 175px;
   }
 }
 @media screen and (min-width: 1280px) {

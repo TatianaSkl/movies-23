@@ -65,6 +65,7 @@ a {
 .site-nav__link {
   color: var(--additional-color);
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @include tablet {
     font-weight: 500;
@@ -77,6 +78,15 @@ a {
   color: var(--accent-color);
 }
 
+.site-nav__link:hover,
+.site-nav__link:focus {
+  color: var(--accent-color);
+}
+
+.page-header__link {
+  display: flex;
+  align-items: center;
+}
 .page-header__icon {
   width: 32px;
   height: 32px;
@@ -89,7 +99,45 @@ a {
 .page-header__logo {
   display: none;
   color: var(--second-color);
+  transition: 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: flicker 2.5s infinite alternate;
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 4px #ebc3a7, 0 0 11px#ebc3a7, 0 0 19px #ebc3a7, 0 0 40px #f87719,
+        0 0 80px #f87719, 0 0 90px#f87719, 0 0 100px#f87719, 0 0 150px #f87719;
+    }
 
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+  // @keyframes flicker {
+  //   0%,
+  //   18%,
+  //   22%,
+  //   25%,
+  //   53%,
+  //   57%,
+  //   100% {
+  //     text-shadow: 0 0 4px #ebc3a7, 0 0 11px #ebc3a7, 0 0 19px #ebc3a7,
+  //       0 0 40px #f87719, 0 0 50px #f87719, 0 0 70px #f87719, 0 0 60px #f87719,
+  //       0 0 80px #f87719;
+  //   }
+
+  //   20%,
+  //   24%,
+  //   55% {
+  //     text-shadow: none;
+  //   }
+  // }
   @include tablet {
     display: block;
     margin-right: 59px;
@@ -103,14 +151,21 @@ a {
   @include desktop {
     margin-right: 307px;
     margin-left: 8px;
-    
   }
+}
+
+.page-header__logo:hover,
+.page-header__logo:focus {
+  // color: var(--accent-color);
+  // transform: rotate(1turn);
+  color: var(--second-color);
+  transform: scale(1.1);
 }
 
 .switch-theme-button {
   background-color: transparent;
   border: 0;
-  
+
   background-image: url(/src/images/mobile/switch-b-mob.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -122,7 +177,7 @@ a {
     margin-left: 175px;
     width: 54px;
     height: 20px;
-    margin-left: 417px;
+    margin-left: 175px;
   }
   @include desktop {
     margin-left: 417px;
@@ -136,7 +191,6 @@ body.light .switch-theme-button {
 }
 
 .mobile-menu {
-
   @include tablet {
     display: none;
   }
@@ -173,9 +227,9 @@ body.light .switch-theme-button {
 }
 
 @media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .switch-theme-button {
     background-image: url(/src/images/mobile/switch-b-mob-2x.png);
   }
@@ -187,9 +241,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
     .switch-theme-button {
       background-image: url(/src/images/tablet/switch-b-tab-2x.png);
     }
@@ -202,9 +256,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (min-resolution: 192dpi),
-  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+    screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 1200px) and (min-resolution: 192dpi),
+    screen and (min-width: 1200px) and (min-resolution: 2dppx) {
     .switch-theme-button {
       background-image: url(/src/images/desktop/switch-b-des-2x.png);
     }
@@ -213,9 +267,9 @@ body.light .switch-theme-button {
 
 /* Light theme responsive images */
 @media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   body.light .switch-theme-button {
     background-image: url(/src/images/mobile/switch-w-mob-2x.png);
   }
@@ -227,9 +281,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
     body.light .switch-theme-button {
       background-image: url(/src/images/tablet/switch-w-tab-2x.png);
     }
@@ -242,9 +296,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (min-resolution: 192dpi),
-  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+    screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 1200px) and (min-resolution: 192dpi),
+    screen and (min-width: 1200px) and (min-resolution: 2dppx) {
     body.light .switch-theme-button {
       background-image: url(/src/images/desktop/switch-w-des-2x.png);
     }
