@@ -2,7 +2,7 @@
   max-width: 480px;
   height: 380px;
   padding-top: 40px;
-
+position: relative;
   margin: 0 auto;
 
   background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
@@ -98,5 +98,27 @@
   margin-top: 16px;
   @include tablet {
     margin-top: 32px;
+  }
+}
+
+
+.ifNotFind{
+  background-image: url(/src/images/mobile/modal-mob.png);
+
+  @include retina {
+    background-image: url(/src/images/mobile/modal-mob-2x.png);
+}
+}
+.modal__hero__container{
+  background-color: var(--primary-color);
+  width: 280px;
+  height: 289px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  &is-open-hero{
+    display: block;
   }
 }
