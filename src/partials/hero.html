@@ -1,30 +1,25 @@
 <section class="hero">
-  <div class="container">
-    <h1 class="hero__title">Let’s Make Your Own Cinema</h1>
-    <p class="hero__text">
-      Is a guide to creating a personalized movie theater experience. You'll
-      need a projector, screen, and speakers.
-    </p>
-    <p class="hero__description">
-      Decorate your space, choose your films, and stock up on snacks for the
-      full experience.
-    </p>
-    <button type="button" data-modal-open class="btn hero__btn">
-      Get Started
-    </button>
-  </div>
-</section>
-<section class="modal__hero">
-  <div class="modal__hero__container is__open__hero">
-    
-    <button class="modal__hero__close"></button>
-    <div class="ifNotFind">
-      <p>OOPS...</p>
-      <p>We are very sorry!</p>
-      <p>But we couldn’t find the trailer.   </p>
+  <div class="container hero__container">
+    <div id="hero-bg">
+      <div id="hero-movie-mob"></div>
     </div>
- <span class="hero_img"></span>
-    <!-- <img src="" alt=""/> -->
+    <div id="hero-content">
+    </div>
+    <div id="hero-movie"></div>
+    <div class="hero-bg-image" id="hero-image"></div>
   </div>
+
 </section>
-<!-- <script type="module" src="./scripts/hero-modal.js"></script> -->
+
+<!--Modal-videos-->
+
+<div class="hero-backdrop hero-is-hidden" id="modal-hero">
+  <div class="modal-hero">
+    <button class="hero-close" id="modal-hero-close"><svg class="close__icon">
+        <use href="./images/icons.svg#icon-close"></use>
+      </svg></button>
+    <div class="modal-video"></div>
+    <div class="modal-error">
+    </div>
+  </div>
+</div>
