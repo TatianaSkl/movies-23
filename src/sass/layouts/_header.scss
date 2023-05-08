@@ -7,25 +7,36 @@ a {
   margin-left: auto;
   position: relative;
   background: #000000;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @include tablet {
     max-width: 768px;
     height: 60px;
-    display: flex;
+    // display: flex;
   }
 
   @include desktop {
     max-width: 1280px;
-    height: 60px;
-    display: flex;
+    // height: 60px;
+    // display: flex;
   }
 }
 
 .main-nav {
-  display: flex;
-  align-items: center;
-  inline-size: fit-content;
-  margin: 0 auto;
+display: inherit;
+align-items: center;
+justify-content: space-between;
+
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    inline-size: fit-content;
+    margin: 0 auto;
+  }
 }
 
 .site-nav {
@@ -90,9 +101,13 @@ a {
 }
 
 .page-header__icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 24px;
 
+  @include tablet {
+    width: 45px;
+    height: 36px;
+  }
   @include desktop {
     margin-left: 2.97px;
   }
@@ -105,7 +120,6 @@ a {
   animation: flicker 2.5s infinite alternate;
 
   @keyframes flicker {
-
     0%,
     18%,
     22%,
@@ -113,8 +127,9 @@ a {
     53%,
     57%,
     100% {
-      text-shadow: 0 0 4px #ebc3a7, 0 0 11px#ebc3a7, 0 0 19px #ebc3a7, 0 0 40px #f87719,
-        0 0 80px #f87719, 0 0 90px#f87719, 0 0 100px#f87719, 0 0 150px #f87719;
+      text-shadow: 0 0 4px #ebc3a7, 0 0 11px#ebc3a7, 0 0 19px #ebc3a7,
+        0 0 40px #f87719, 0 0 80px #f87719, 0 0 90px#f87719, 0 0 100px#f87719,
+        0 0 150px #f87719;
     }
 
     20%,
@@ -142,10 +157,10 @@ a {
   //     55% {
   //       text-shadow: none;
   //     }
-  //   } 
+  //   }
   @include tablet {
     display: block;
-    margin-right: 59px;
+    margin-right: 48px;
     margin-left: 8px;
     font-weight: 400;
     font-size: 24px;
@@ -171,13 +186,14 @@ a {
 .switch-theme-button {
   background-color: transparent;
   border: 0;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-image: url(/src/images/mobile/switch-b-mob.png);
   background-repeat: no-repeat;
   background-size: contain;
   width: 38px;
   height: 16px;
-  margin-left: 210px;
+
 
   @include tablet {
     margin-left: 175px;
@@ -208,13 +224,14 @@ body.light .switch-theme-button {
   }
 }
 
-.mobile-menu__logo-image {}
+.mobile-menu__logo-image {
+}
 
 .menu-button {
   background-color: transparent;
   border: 0;
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 132px;
 
   padding: 9px;
@@ -222,20 +239,32 @@ body.light .switch-theme-button {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.16;
+
+
 }
+
+// .mobile-menu__btn {
+//   color: var(--additional-color);
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 1.16;
+//   background-color: red;
+// }
 
 .mobile-menu__nav-list {
   list-style: none;
 }
 
-.mobile-menu__item {}
+.mobile-menu__item {
+}
 
-.site-nav__link {}
+.site-nav__link {
+}
 
 @media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .switch-theme-button {
     background-image: url(/src/images/mobile/switch-b-mob-2x.png);
   }
@@ -247,9 +276,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
     .switch-theme-button {
       background-image: url(/src/images/tablet/switch-b-tab-2x.png);
     }
@@ -262,9 +291,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (min-resolution: 192dpi),
-  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+    screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 1200px) and (min-resolution: 192dpi),
+    screen and (min-width: 1200px) and (min-resolution: 2dppx) {
     .switch-theme-button {
       background-image: url(/src/images/desktop/switch-b-des-2x.png);
     }
@@ -273,9 +302,9 @@ body.light .switch-theme-button {
 
 /* Light theme responsive images */
 @media (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   body.light .switch-theme-button {
     background-image: url(/src/images/mobile/switch-w-mob-2x.png);
   }
@@ -287,9 +316,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 768px) and (min-resolution: 192dpi),
-  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
     body.light .switch-theme-button {
       background-image: url(/src/images/tablet/switch-w-tab-2x.png);
     }
@@ -302,9 +331,9 @@ body.light .switch-theme-button {
   }
 
   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-width: 1200px) and (min-resolution: 192dpi),
-  screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+    screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 1200px) and (min-resolution: 192dpi),
+    screen and (min-width: 1200px) and (min-resolution: 2dppx) {
     body.light .switch-theme-button {
       background-image: url(/src/images/desktop/switch-w-des-2x.png);
     }
