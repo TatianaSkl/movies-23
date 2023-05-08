@@ -101,24 +101,113 @@ position: relative;
   }
 }
 
-
-.ifNotFind{
-  background-image: url(/src/images/mobile/modal-mob.png);
-
-  @include retina {
-    background-image: url(/src/images/mobile/modal-mob-2x.png);
+.modal__hero{
+  justify-content: center; 
 }
-}
+
+// .modal__hero__container{
+//   background-color: var(--primary-color);
+//   width: 280px;
+//   height: 289px;
+//   position: absolute;
+//   top: 20%;
+//   left: 0;
+//   width: 100%;
+//   display: none;
+//   &:is__open__hero{
+//     display: block;
+//   }
+// }
+
 .modal__hero__container{
   background-color: var(--primary-color);
+  border-radius: 16px;
   width: 280px;
   height: 289px;
   position: absolute;
-  top: 100%;
+  justify-content: center;
+  top: 15%;
   left: 0;
-  width: 100%;
-  display: none;
-  &is-open-hero{
-    display: block;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+   display: block;
+   @include tablet {
+    width: 609px;
+height: 400px;
+
+    @include retina {}
+  }
+@include desktop {
+  width: 700px;
+height: 400px;
+left: 290px;
+top: 190px;
+border-radius: 20px;
+  @include retina {}
+}
+}
+.ifNotFind {
+ 
+  font-family: 'Roboto';
+font-style: normal;
+  font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+width: 214px;
+height: 65px;
+left: 33px;
+top: 39px;
+@include tablet {
+  font-size: 24px;
+line-height: 28px;
+width: 321px;
+height: 92px;
+left: 44px;
+top: 132px;
+  @include retina {}
+}
+@include desktop {
+   position: absolute;
+  font-size: 24px;
+line-height: 28px;
+width: 321px;
+height: 92px;
+left: 44px;
+top: 132px;
+  @include retina {}
+}
+}
+
+.hero_img{   background-image: url(/src/images/mobile/modal-mob.png);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: absolute;
+   width: 159px;
+height: 153px;
+left: 61px;
+top: 128px;
+  @include retina {
+    background-image: url(/src/images/mobile/modal-mob-2x.png);
+}
+@include tablet {
+  width: 296px;
+height: 260px;
+background-image: url(/src/images/tablet/modal-tab.png);
+  @include retina {
+    background-image: url(/src/images/tablet/modal-tab-2x.png);
   }
 }
+@include desktop {
+  width: 363px;
+height: 318px;
+left: 337px;
+top: 77px;
+background-image: url(/src/images/desktop/modal-des.png);
+@include retina {}
+}
+  
+}
+.is__open__hero{
+  display: none;
+  
+  }
