@@ -1,10 +1,10 @@
 // const heroBtn = document.querySelector(hero__btn);
 
 // heroBtn.addEventListener("click", handleClick);
-
-     const openModalBtn = document.querySelector('hero__btn');
-      const closeModalBtn = document.querySelector('modal__hero__close');
-      const modal = document.querySelector('modal__hero__container');
+(() => {
+     const openModalBtn = document.querySelector('.hero__btn');
+      const closeModalBtn = document.querySelector('.modal__hero__close');
+      const modal = document.querySelector('.modal__hero__container');
   
    openModalBtn.addEventListener('click', toggleModal);
    closeModalBtn.addEventListener('click', toggleModal);
@@ -13,7 +13,7 @@
       modal.classList.toggle('is__open__hero');
       console.log("hello")
     }
- 
+  })();
 
 
 // const handleClick = (event) => {
