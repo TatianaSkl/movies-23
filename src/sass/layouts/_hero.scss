@@ -1,50 +1,82 @@
-.hero {
-  max-width: 480px;
-  height: 380px;
-  padding-top: 40px;
-position: relative;
-  margin: 0 auto;
+#hero-bg {
+  @media screen and (max-width: 767px) {
+    max-width: 480px;
+    height: 380px;
+    padding-top: 40px;
 
-  background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-    url(../images/mobile/hero-bg-mob.jpg);
-
-  @include retina {
+    margin: 0 auto;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-      url(../images/mobile/hero-bg-mob-2x.jpg);
-  }
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @include tablet {
-    max-width: 768px;
-    height: 372px;
-    padding-top: 62px;
-
-    background-image: var(--hero-bgd),
-      linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-      url(../images/tablet/hero-bg-tab.jpg);
+      url(../images/mobile/hero-bg-mob.jpg);
 
     @include retina {
-      background-image: var(--hero-bgd-retina),
-        linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-        url(../images/tablet/hero-bg-tab-2x.jpg);
+      background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
+        url(../images/mobile/hero-bg-mob-2x.jpg);
     }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
+#hero-movie {
+  display: none;
+  @include tablet {
+    display: block;
+    width: 295px;
+    padding-top: 36px;
+  }
+  @include desktop {
+    width: 500px;
+    padding-top: 118px;
+  }
+}
+.hero__container {
+  @include tablet {
+    display: flex;
+    width: 100%;
+    min-height: 372px;
+    background-image: url(../images/tablet/hero-b-tab.png);
+    @include retina {
+      background-image: url(../images/tablet/hero-b-tab-2x.png);
+    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @include desktop {
+    min-height: 660px;
+    background-image: url(../images/desktop/hero-b-des.png);
+    @include retina {
+      background-image: url(../images/desktop/hero-b-des-2x.png);
+    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.hero-bg-image {
+  display: none;
+  @include tablet {
+    position: relative;
+    z-index: -1;
+    display: block;
+    width: 70%;
+    background-image: url(../images/tablet/hero-bg-tab.jpg);
+    @include retina {
+      background-image: url(../images/tablet/hero-bg-tab-2x.jpg);
+    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   @include desktop {
-    max-width: 1280px;
-    height: 660px;
-    padding-top: 169px;
-
-    background-image: var(--hero-bgd),
-      linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-      url(../images/desktop/hero-bg-des.jpg);
-
+    background-image: url(../images/desktop/hero-bg-des.jpg);
     @include retina {
-      background-image: var(--hero-bgd-retina),
-        linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-        url(../images/desktop/hero-bg-des-2x.jpg);
+      background-image: url(../images/desktop/hero-bg-des-2x.jpg);
     }
   }
 }
@@ -53,10 +85,11 @@ position: relative;
   max-width: 199px;
   margin-bottom: 8px;
   font-size: 32px;
-  line-height: 1.18;
+  line-height: 1.19;
   @include tablet {
     max-width: 332px;
     font-size: 44px;
+    line-height: 1.19;
   }
   @include desktop {
     max-width: 464px;
@@ -65,7 +98,29 @@ position: relative;
     line-height: 1.17;
   }
 }
-
+.hero__title-movie {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 32px;
+  line-height: 1.19;
+  @include tablet {
+    max-width: 332px;
+    font-size: 44px;
+    line-height: 1.18;
+  }
+  @include desktop {
+    max-width: 464px;
+    margin-bottom: 16px;
+    font-size: 64px;
+    line-height: 1.17;
+  }
+}
+.hero__rating {
+  margin-bottom: 20px;
+  @include desktop {
+    margin-bottom: 28px;
+  }
+}
 .hero__text {
   display: block;
   max-width: 166px;
@@ -77,6 +132,23 @@ position: relative;
   @include desktop {
     max-width: 464px;
     font-size: 16px;
+    line-height: 1.18;
+  }
+}
+.hero__text-movie {
+  display: block;
+  max-width: 320px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.14;
+  @include tablet {
+    max-width: 250px;
+    margin-bottom: 28px;
+  }
+  @include desktop {
+    max-width: 464px;
+    font-size: 16px;
+    margin-bottom: 36px;
     line-height: 1.18;
   }
 }
@@ -96,29 +168,132 @@ position: relative;
 }
 .hero__btn {
   margin-top: 16px;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    background: var(--second-color);
+  }
   @include tablet {
     margin-top: 32px;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+.hero__btn-movie {
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    background: var(--second-color);
+  }
+  @include tablet {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
 
-
-.ifNotFind{
-  background-image: url(/src/images/mobile/modal-mob.png);
-
-  @include retina {
-    background-image: url(/src/images/mobile/modal-mob-2x.png);
-}
-}
-.modal__hero__container{
-  background-color: var(--primary-color);
-  width: 280px;
-  height: 289px;
-  position: absolute;
-  top: 100%;
+// <!--Modal-videos-->
+.hero-backdrop {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  display: none;
-  &is-open-hero{
-    display: block;
+  height: 100%;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+}
+.hero-is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal-hero {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translate(-50%) scale(1) rotate(0);
+  width: 280px;
+  height: 289px;
+  padding: 39px 33px;
+
+  @include tablet {
+    top: 60px;
+    width: 609px;
+    height: 400px;
+    padding: 44px;
+  }
+  @include desktop {
+    top: 190px;
+    min-height: 400px;
+    min-width: 700px;
+    padding: 50px;
+  }
+
+  background-color: var(--primary-color);
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 16px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-backdrop.hero-is-hidden .modal-hero {
+  transform: translate(-50%, -50%) scale(0) rotate(180deg);
+}
+.hero-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  @include tablet {
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+  }
+  @include desktop {
+    top: 28px;
+    right: 28px;
+  }
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus-within {
+    color: var(--accent-color);
+  }
+  &__icon {
+    fill: currentColor;
+  }
+}
+.modal-video iframe {
+  width: 100%;
+  height: 211px;
+  border-radius: 10px;
+  border-color: var(--accent-color);
+  object-fit: cover;
+  @include tablet {
+    height: 312px;
+  }
+  @include desktop {
+    height: 300px;
   }
 }
