@@ -37,26 +37,64 @@
 }
 
 #trending {
-  display: flex;
   list-style: none;
   width: 100%;
 
-  // @media screen and (max-width: 767px) {
-  //   & :nth-child(n + 2) {
-  //     display: none;
-  //   }
-  // }
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+[data-id='447365'] {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+[data-id='758323'] {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .trending__item {
   position: relative;
-  margin-left: 16px;
-  height: 800px;
+  margin-right: 16px;
+  height: 700px;
   width: 33.3333%;
   border-radius: 5px;
+
   @media screen and (max-width: 767px) {
     width: 100%;
   }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    height: 350px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 550px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.trending__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 53.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+  z-index: 1;
 }
 
 .trending__img {
@@ -71,24 +109,32 @@
 
 .trending__title {
   position: absolute;
-  bottom: 24;
+  bottom: 0;
   left: 0;
   padding-left: 12px;
-  padding-bottom: 12px;
+  padding-bottom: 42px;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
   line-height: calc(20 / 12);
-  background: rgba(0, 0, 0, 0.9) 92.16%;
+  color: var(--second-color);
+  width: 100%;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 75%;
+    padding-bottom: 52px;
+  }
+
   @media screen and (min-width: 1280px) {
     font-size: 20px;
     line-height: calc(23 / 20);
+    width: 75%;
+    padding-bottom: 62px;
   }
 }
 
 .trending__meta {
   display: flex;
-  // flex-direction: column;
   position: absolute;
   font-weight: 500;
   font-size: 12px;
@@ -96,21 +142,22 @@
   color: var(--additional-color);
   bottom: 0;
   width: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 63.48%,
-    rgba(0, 0, 0, 0.9) 92.16%
-  );
   padding-left: 12px;
   padding-bottom: 12px;
+
   @media screen and (min-width: 1280px) {
     font-size: 20px;
     line-height: calc(23 / 20);
   }
+  z-index: 5;
 }
 
-.trending__rating {
-  margin-left: auto;
+.trending__genres {
+  width: 75%;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 45%;
+  }
 }
 
 .upcoming__title {
@@ -128,6 +175,7 @@
   @media screen and (min-width: 1280px) {
     font-size: 32px;
     line-height: calc(38 / 22);
+    margin-top: 0;
   }
 }
 
@@ -176,14 +224,104 @@
 .upcoming__item {
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+  }
 }
 
 .upcoming__img {
   width: 100%;
   display: block;
   object-fit: contain;
+  @media screen and (min-width: 1280px) {
+    width: 90%;
+  }
 }
 
-// #btn__upcoming {
-//   margin-left: 20px;
-// }
+#upcoming_btn {
+  margin-right: 5px;
+}
+
+.film-card__rating {
+  position: absolute;
+  right: 12px;
+  bottom: 15px;
+
+  display: inline-block;
+}
+
+//!=================
+.rating {
+  display: flex;
+  align-items: flex-end;
+  font-size: 20px;
+  line-height: 0.75;
+
+  @include tablet {
+    font-size: 15px;
+  }
+
+  @include desktop {
+    font-size: 25px;
+  }
+}
+
+.rating__body {
+  position: relative;
+}
+
+.rating__body::before {
+  content: '★★★★★';
+  display: block;
+}
+
+.rating__active {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.rating__active::before {
+  content: '★★★★★';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    175.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
+  // -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rating__items {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.rating__item {
+  flex: 0 0 20%;
+  min-width: 90px;
+  height: 100%;
+  opacity: 0;
+
+  @include tablet {
+    min-width: 66px;
+  }
+}
+
+.rating__value {
+  font-size: 50%;
+  line-height: 1;
+  padding: 0px 0px 0px 10px;
+}

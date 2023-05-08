@@ -23,7 +23,7 @@ export function starRating() {
       setRatingActiveWidth();
     }
 
-    // Инициализация переменных
+    // Инициализация переменныхim
     function initRatingVars(rating) {
       ratingActive = rating.querySelector('.rating__active');
       ratingValue = rating.querySelector('.rating__item').value;

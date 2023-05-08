@@ -3,6 +3,7 @@ import {
   getUpcomingMovies,
   getMovieDetails,
 } from './movies-api';
+import { starRating } from './star-rating';
 
 export function renderTrending(renderFn, showFn) {
   const container = document.getElementById('trending');
@@ -27,19 +28,36 @@ export function showTrending(movies) {
     ({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
       return `
       <li class="trending__item" data-id=${id}>
-            <img class="trending__img" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
-            <p class="trending__title">${title}</p>  
+          <img class="trending__img" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
             <div class="trending__meta">
-               
+                <p class="trending__title">${title}</p> 
                 <p class="trending__genres">${getGenreNames(genre_ids)} | ${
         release_date.split('-')[0]
       }</p>
-                <p class="trending__rating">${vote_average}</p>
+      <span class="film-card__rating">
+      <div class="rating">
+        <div class="rating__body">
+          <div class="rating__active"></div>
+          <div class="rating__items">
+            <input
+              type="range"
+              min="0"
+              max="10"
+              class="rating__item"
+              value="${vote_average}"
+              name="rating"
+            />
+          </div>
+        </div>
+      </div>
+    </span>
 </div>
-        </li>`;
+      </li>`;
     }
   );
 }
+starRating();
+
 export function showUpcoming(movie) {
   const {
     id,
