@@ -15,7 +15,7 @@ export function createMarkupFilmsList(moviesData) {
     <ul class="film-card__description list">
       <li class="film-card__genres">${genres} |</li>
 
-      <li class="film-card__release-date">${release_date}</li>
+      <li class="film-card__release-date">${release_date.split('-')[0]}</li>
     </ul>
     <span class="film-card__rating">
       <div class="rating">

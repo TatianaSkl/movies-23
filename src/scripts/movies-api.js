@@ -17,9 +17,9 @@ class CatalogApiService {
   }
   async getWeekTrendingMoviesInCatalog(page = 1) {
     const response = await axios.get(
-      `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${this.page}`
+      `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${page}`
     );
-    this.incrementPage();
+    // this.incrementPage();
     return response.data;
   }
   incrementPage() {

@@ -9,10 +9,7 @@ const movieAPI = new CatalogApiService();
 
 export async function renderTrendMovie() {
   const data = await movieAPI.getWeekTrendingMoviesInCatalog();
-  // console.log(data);
-  const pagination = createPagination(data.total_results, data.total_pages); // TODO pagination ====
-  // console.log(pagination);
-
+  const pagination = createPagination(data.total_results, data.total_pages); // TODO pagination
   const results = await data.results.slice(0, 10);
 
   try {
@@ -26,12 +23,15 @@ export async function renderTrendMovie() {
         movieList.innerHTML = '';
         movieAPI.getWeekTrendingMoviesInCatalog(page).then(data => {
           const movies = data.results.slice(0, 10);
+
           if (movies) {
-            console.log(results);
             const markupTrend = createMarkupFilmsList(movies);
             movieList.innerHTML = markupTrend;
             starRating();
-            // scrollTop();
+            window.scrollTo({
+              top: 450,
+              behavior: 'smooth',
+            });
           }
         });
       });
