@@ -8,30 +8,30 @@
   transition: 0.3s all;
   opacity: 0;
 
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-image: url(..//../images/desktop/icon-arrow.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 60px 60px;
+  background-size: 40px 40px;
   transform: rotate(270deg);
 
   @include tablet {
     bottom: -30px;
     right: 30px;
 
-    width: 70px;
-    height: 70px;
-    background-size: 70px 70px;
+    width: 45px;
+    height: 45px;
+    background-size: 45px 45px;
   }
 
   @include desktop {
     bottom: -50px;
     right: 50px;
 
-    width: 80px;
-    height: 80px;
-    background-size: 80px 80px;
+    width: 55px;
+    height: 55px;
+    background-size: 55px 55px;
   }
 }
 
