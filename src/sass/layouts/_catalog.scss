@@ -1,3 +1,18 @@
+.container.catalog {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @mixin desktop {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+}
+
 .search-form {
   display: flex;
   align-items: center;
@@ -13,7 +28,8 @@ input::placeholder {
 }
 .search-input {
   max-width: 224px;
-  padding: 10px 142px 10px 20px;
+  padding: 10px 20px;
+  caret-color: var(--accent-color);
   border: 1px solid var(--second-color);
   border-radius: 10px;
   margin-right: 16px;
@@ -24,7 +40,7 @@ input::placeholder {
 
   @include tablet {
     max-width: 204px;
-    padding: 12px 140px 12px 20px;
+    padding: 12px 20px;
   }
 
   @include desktop {
@@ -41,16 +57,14 @@ input::placeholder {
   border-radius: 50%;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border: transparent;
-  
 
   stroke: var(--primary-color);
   fill: none;
   cursor: pointer;
 
-  
-  &:hover{
+  &:hover {
     border: 1px solid var(--accent-color);
-    background-image:linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    background-image: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
     border-image-slice: 1;
     stroke: var(--accent-color);
     background: transparent;
@@ -62,13 +76,11 @@ input::placeholder {
   }
 }
 
-
 .catalog__list {
   // margin: 40 auto 60 auto;
- 
- 
+
   @media screen and (max-width: 767px) {
-    margin:16 auto 20 auto;
+    margin: 16 auto 20 auto;
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -87,7 +99,186 @@ input::placeholder {
   }
 }
 
-.pagination-box {
-  justify-content: center;
+.catalog__message {
+  display: block;
+}
+
+.catalog__message.is-hidden {
+  display: none;
+}
+
+.catalog__message-text {
+  // margin-left: auto;
+  // margin-right: auto;
+  min-width: 280px;
+  font-size: 20px;
+  line-height: 1.4;
   text-align: center;
+  // color: var(--second-color);
+  color: rgb(10, 46, 87);
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 1.33;
+    // color: var(--second-color);
+    color: rgb(10, 46, 87);
+  }
+
+  @include desktop {
+    font-size: 32px;
+    line-height: 1.12;
+    // color: var(--second-color);
+    color: rgb(10, 46, 87);
+  }
+}
+
+// TODO ======== pagination ==============
+
+// .catalog-pagination {
+
+// }
+
+#pagination.tui-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+#pagination.tui-pagination .tui-page-btn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  color: #b7b7b7;
+  font-size: 14px;
+
+  outline: none;
+  border: transparent;
+  border-radius: 50%;
+  transform: scale(1);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.07);
+    // box-shadow: 5px 5px 5px 0px #525151; //5px 5px 10px 5px #383838;
+  }
+
+  @include tablet {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+#pagination.tui-pagination .tui-page-btn:not(:last-child) {
+  margin: 0px 8px 0px 0px;
+
+  @include tablet {
+    margin: 0px 16px 0px 0px;
+  }
+}
+
+#pagination.tui-pagination a.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #b7b7b7;
+
+  @include tablet {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.tui-pagination .tui-page-btn.tui-first,
+.tui-pagination .tui-page-btn.tui-last {
+  color: #b7b7b7;
+  font-size: 14px;
+  // line-height: 1;
+  outline: none;
+  border: transparent;
+  border-radius: 50%;
+}
+
+#pagination.tui-pagination .tui-page-btn.tui-first,
+#pagination.tui-pagination .tui-page-btn.tui-prev,
+#pagination.tui-pagination .tui-page-btn.tui-next,
+#pagination.tui-pagination .tui-page-btn.tui-last {
+  width: 20px;
+  height: 20px;
+  border: transparent;
+
+  @include tablet {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+#pagination.tui-pagination .tui-page-btn.tui-first {
+  margin: 0;
+}
+
+#pagination.tui-pagination .tui-page-btn.tui-next {
+  margin: 0;
+}
+
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-first,
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-prev,
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-next,
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tui-pagination .tui-page-btn.tui-first,
+.tui-pagination .tui-page-btn.tui-prev,
+.tui-pagination .tui-page-btn.tui-next,
+.tui-pagination .tui-page-btn.tui-last,
+.tui-pagination .tui-page-btn.tui-prev-is-ellip,
+.tui-pagination .tui-page-btn.tui-next-is-ellip {
+  outline: none;
+  color: #b7b7b7;
+  border: transparent;
+  border-radius: 50%;
+}
+
+#pagination.tui-pagination .tui-page-btn.tui-first-child span.tui-ico-ellip {
+  color: #b7b7b7;
+}
+
+#pagination.tui-pagination a.tui-page-btn.tui-next-is-ellip.tui-last-child,
+#pagination.tui-pagination a.tui-page-btn.tui-prev-is-ellip.tui-first-child {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  border: transparent;
+
+  @include tablet {
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.tui-pagination .tui-page-btn.tui-first-child,
+.tui-pagination .tui-page-btn.tui-last-child {
+  color: #b7b7b7;
+  background-color: transparent;
+  outline: none;
+  border: transparent;
+  border-radius: 50%;
+}
+
+#pagination.tui-pagination .tui-is-selected,
+#pagination.tui-pagination strong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }

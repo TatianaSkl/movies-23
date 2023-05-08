@@ -50,7 +50,7 @@
     <main>
       <include src="./partials/hero.html"></include>
 
-      <section class="container">
+      <section class="container catalog">
         <form class="search-form" id="search-form">
           <input
             type="text"
@@ -69,20 +69,22 @@
 
         <ul class="catalog__list"></ul>
 
-        <h2 class="visually-hidden">Pagination</h2>
-        <div class="pagination-box">
-          <button type="button"><</button>
-          <button type="button">1</button>
-          <button type="button">2</button>
-          <button type="button">3</button>
-          <button type="button">4</button>
-          <button type="button">5</button>
-          <button type="button">></button>
+        <div class="catalog__message is-hidden">
+          <p class="catalog__message-text">OOPS...</p>
+          <p class="catalog__message-text">We are very sorry!</p>
+          <p class="catalog__message-text">
+            We don’t have any results due to your search.
+          </p>
         </div>
+
+        <!-- TODO pagination -->
+        <div id="pagination" class="tui-pagination catalog-pagination"></div>
       </section>
     </main>
     <include src="./partials/footer.html"></include>
     <include src="./partials/scroll.html"></include>
+
+    <!-- TODO pagination -->
 
     <!-- library jquery scroll to top-->
     <script
