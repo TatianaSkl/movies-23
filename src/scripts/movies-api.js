@@ -8,11 +8,11 @@ class CatalogApiService {
     this.query = '';
     this.page = 1;
   }
-  async searchMovies() {
+  async searchMovies(page = 1) {
     const response = await axios.get(
-      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.query}&page=${this.page}`
+      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.query}&page=${page}`
     );
-    this.incrementPage();
+    // this.incrementPage();
     return response.data;
   }
   async getWeekTrendingMoviesInCatalog(page = 1) {
