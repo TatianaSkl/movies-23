@@ -218,6 +218,7 @@
 // <!--Modal-videos-->
 .hero-backdrop {
   position: fixed;
+  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;
@@ -235,6 +236,7 @@
 }
 .modal-hero {
   position: absolute;
+  z-index: 30;
   top: 88px;
   left: 50%;
   transform: translate(-50%) scale(1) rotate(0);
