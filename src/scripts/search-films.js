@@ -66,7 +66,6 @@ async function onSearch(e) {
         });
       });
     } else {
-      // movieList.innerHTML = '<p>No results found</p>';
       message.classList.remove('is-hidden');
       paginationHidden.classList.add('visually-hidden');
     }

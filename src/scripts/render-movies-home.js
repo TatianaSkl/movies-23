@@ -18,6 +18,7 @@ export function renderUpcoming(renderFn, showFn) {
     const index = (Math.random() * (results.length - 1)).toFixed();
     const movie = results[index];
     container.innerHTML = showFn(movie);
+    starRating();
     const btn = document.getElementById('btn__upcoming');
     btn.addEventListener('click', remindMe);
   });
