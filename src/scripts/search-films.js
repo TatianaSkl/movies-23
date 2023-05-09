@@ -7,7 +7,6 @@ import { getGenres } from './movies-api';
 const searchForm = document.querySelector('.search-form');
 const movieList = document.querySelector('.catalog__list');
 const message = document.querySelector('.catalog__message');
-// console.log(message);
 const paginationHidden = document.querySelector('.catalog-pagination');
 const movieAPI = new CatalogApiService();
 
@@ -51,10 +50,6 @@ async function onSearch(e) {
         movieList.innerHTML = markupMovies;
         starRating();
       });
-
-      // const markupMovies = createMarkupFilmsList(searchResults);
-      // movieList.innerHTML = markupMovies;
-      // starRating();
       paginationHidden.classList.remove('visually-hidden');
 
       pagination.on('beforeMove', ({ page }) => {
