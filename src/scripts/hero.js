@@ -1,4 +1,5 @@
 import { getDayTrendingMovies, getMovieVideos } from './movies-api';
+import { starRating } from './star-rating';
 
 export function renderHero() {
   const heroBg = document.getElementById('hero-bg');
@@ -28,16 +29,54 @@ export function renderHero() {
       heroImage.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
       heroMovieMob.innerHTML = `
         <h1 class="hero__title-movie">${title}</h1>
-        <div class="hero__rating">${vote_average}</div>
+        <div class="hero__wrapper-rating">
+        <span class="hero-card__rating">
+      <div class="rating hero-rating">
+        <div class="hero-rating__body">
+          <div class="rating__active"></div>
+          <div class="hero-rating__items">
+            <input
+              type="range"
+              min="0"
+              max="10"
+              class="rating__item"
+              value="${vote_average}"
+              name="hero-rating"
+            />
+          </div>
+        </div>
+      </div>
+    </span>
+    </div>
         <p class="hero__text-movie">${overview}</p>
         <button class="btn hero__btn-movie" id="modal-hero-open-mob">Watch trailer</button>
       `;
+      starRating();
       heroMovie.innerHTML = `
         <h1 class="hero__title-movie">${title}</h1>
-        <div class="hero__rating">${vote_average}</div>
+        <div class="hero__wrapper-rating">
+        <span class="hero-card__rating">
+      <div class="rating hero-rating">
+        <div class="hero-rating__body">
+          <div class="rating__active"></div>
+          <div class="hero-rating__items">
+            <input
+              type="range"
+              min="0"
+              max="10"
+              class="rating__item"
+              value="${vote_average}"
+              name="hero-rating"
+            />
+          </div>
+        </div>
+      </div>
+    </span>
+    </div>
         <p class="hero__text-movie">${overview}</p>
         <button class="btn hero__btn-movie" id="modal-hero-open">Watch trailer</button>
       `;
+      starRating();
       const openModalHeroBtn = document.getElementById('modal-hero-open');
       const closeModalHeroBtn = document.getElementById('modal-hero-close');
       const openModalHeroBtnMob = document.getElementById('modal-hero-open-mob');
