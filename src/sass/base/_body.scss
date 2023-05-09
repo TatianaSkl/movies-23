@@ -1,9 +1,86 @@
 body {
   font-family: var(--main-font);
-  color: var(--primary-text-clr);
-  background-color: var(--page-bgd);
+  color: var(--second-color);
+  background-color: var(--primary-color);
 
   &.modal-open {
     overflow: hidden;
+  }
+}
+body.light {
+  background: var(--second-color);
+  color: var(--primary-color);
+}
+.light {
+  & .page-header {
+    background: var(--second-color);
+  }
+  & .site-nav__link {
+    color: var(--alternate-color);
+  }
+  & .page-header__logo {
+    color: var(--further-color);
+  }
+  & .menu-button {
+    color: var(--alternate-color);
+  }
+  & .hero__container {
+    @include tablet {
+      background-image: url(../images/tablet/hero-w-tab.png);
+      @include retina {
+        background-image: url(../images/tablet/hero-w-tab-2x.png);
+      }
+    }
+    @include desktop {
+      background-image: url(../images/desktop/hero-w-des.png);
+      @include retina {
+        background-image: url(../images/desktop/hero-w-des-2x.png);
+      }
+    }
+  }
+  & .modal-hero {
+    background-color: var(--second-color);
+  }
+  & .hero-close {
+    border: 1px solid var(--second-color);
+    border-color: var(--second-color);
+    background-color: var(--second-color);
+    color: var(--primary-color);
+  }
+  & .hero__text-movie {
+    color: var(--further-color);
+  }
+  & .upcoming__info {
+    color: var(--primary-color);
+  }
+  & .upcoming__about {
+    color: var(--primary-color);
+  }
+  & .upcoming__overview {
+    color: var(--further-color);
+  }
+  & .upcoming__date {
+    color: var(--accent-color);
+  }
+  & .upcoming__info .vote-background {
+    color: var(--further-color);
+  }
+  & .footer__sub {
+    color: var(--alternate-color);
+  }
+  & .footer__text {
+    color: var(--alternate-color);
+  }
+  & .search-input {
+    border: 1px solid var(--alternate-color);
+  }
+  & .library-cards__sorry {
+    color: var(--primary-color);
+  }
+   & .modal__description {
+    color: var(--further-color);
+  }
+   & .button__close {
+    background-color: var(--second-color);
   }
 }
