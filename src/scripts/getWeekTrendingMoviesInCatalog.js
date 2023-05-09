@@ -2,6 +2,7 @@ import { createMarkupFilmsList } from './markup';
 import { CatalogApiService } from './movies-api';
 import { starRating } from './star-rating';
 import { createPagination } from './pagination';
+import { getGenres } from './movies-api';
 
 const movieList = document.querySelector('.catalog__list');
 
@@ -14,9 +15,17 @@ export async function renderTrendMovie() {
 
   try {
     if (results !== 0) {
-      const markupTrendMovies = createMarkupFilmsList(results);
-      movieList.insertAdjacentHTML('beforeend', markupTrendMovies);
-      starRating();
+      getGenres().then(data => {
+        global.genres = data;
+
+        const markupTrendMovies = createMarkupFilmsList(results, global.genres);
+        movieList.insertAdjacentHTML('beforeend', markupTrendMovies);
+        starRating();
+      });
+
+      // const markupTrendMovies = createMarkupFilmsList(results);
+      // movieList.insertAdjacentHTML('beforeend', markupTrendMovies);
+      // starRating();
 
       // TODO pagination ================
       pagination.on('beforeMove', ({ page }) => {
