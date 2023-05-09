@@ -1,6 +1,4 @@
 export function createMarkupFilmsList(moviesData) {
-  const defaultImg = '';
-
   return moviesData
     .map(movie => {
       const {
