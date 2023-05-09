@@ -1,8 +1,15 @@
 export function createMarkupFilmsList(moviesData) {
   return moviesData
     .map(movie => {
-      const { genres, id, poster_path, title, vote_average, release_date } =
-        movie;
+      const {
+        genres,
+        genre_ids,
+        id,
+        poster_path,
+        title,
+        vote_average,
+        release_date,
+      } = movie;
       return `<li class="film-card" data-id="${id}">
   <img
     class="film-card__img"
@@ -13,7 +20,7 @@ export function createMarkupFilmsList(moviesData) {
   <div class="film-card__wrapper">
     <h2 class="film-card__title">${title}</h2>
     <ul class="film-card__description list">
-      <li class="film-card__genres">${genres} |</li>
+      <li class="film-card__genres">${getGenreNames(genre_ids)} |</li>
 
       <li class="film-card__release-date">${release_date.split('-')[0]}</li>
     </ul>
@@ -38,4 +45,15 @@ export function createMarkupFilmsList(moviesData) {
 </li>`;
     })
     .join('');
+}
+
+function getGenreNames(genreIds) {
+  const genreNames = [];
+  const collection = global.genres.genres;
+  const res = genreIds.slice(0, 2).map(function (genreId) {
+    return collection.find(function (genre) {
+      return genre.id == genreId;
+    }).name;
+  });
+  return res.join(', ');
 }
