@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinemania</title>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinemania</title>
 
     <meta
       name="description"
@@ -52,6 +59,11 @@
 
     <script type="module" src="./index.js"></script>
   </head>
+  <!-- base style -->
+  <link rel="stylesheet" href="./sass/index.scss" />
+  
+  <script type="module" src="./index.js"></script>
+</head>
 
   <body>
     <include src="./partials/header.html"></include>
@@ -94,16 +106,16 @@
     <!-- Modal to one movie -->
     <!-- <include src="./partials/modal-window.html"></include> -->
 
-    <!-- library jquery scroll to top-->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./scripts/scroll-to-top.js"></script>
-    <script src="./scripts/theme-switch.js"></script>
+  <!-- TODO pagination -->
 
-    <!-- base js -->
-    <script type="module" src="./index.js"></script>
-  </body>
+  <!-- library jquery scroll to top-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="./scripts/scroll-to-top.js"></script>
+  <script src="./scripts/theme-switch.js"></script>
+  <script type="module" src="/src/scripts/current-catalog-page.js"></script>
+  <!-- base js -->
+  <script type="module" src="./index.js"></script>
+</body>
+
 </html>

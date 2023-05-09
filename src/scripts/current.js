@@ -1,9 +1,10 @@
 // const navLinks = document.querySelectorAll('.site-nav__link');
+// console.log('🚀 ~ file: current.js:2 ~ navLinks:', navLinks);
 
 // navLinks.forEach(function (navLink) {
 //   navLink.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     if (this.classList.contains('current')) {
+//     // event.preventDefault();
+//     if (navLink.classList.contains('current')) {
 //       return;
 //     }
 
@@ -12,6 +13,6 @@
 //       currentItem.classList.remove('current');
 //     });
 
-//     this.classList.add('current');
+//     navLink.classList.add('current');
 //   });
 // });
