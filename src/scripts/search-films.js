@@ -20,13 +20,12 @@ async function onSearch(e) {
   // paginationHidden.classList.remove('visually-hidden');
 
   if (formValue === '') {
-    // movieList.innerHTML = '';
     paginationHidden.classList.add('visually-hidden'); //!
     movieList.innerHTML = '';
-    // Notiflix.Notify.failure(
-    //   "Sorry, the search string can't be empty. Please try again."
-    // );
-    console.log("Sorry, the search string can't be empty. Please try again.");
+    Notiflix.Notify.failure(
+      "Sorry, the search string can't be empty. Please try again."
+    );
+
     searchForm.reset();
     return;
   }

@@ -36,11 +36,5 @@ export function createPagination(totalItems, visiblePages) {
 
   const pagination = new Pagination('pagination', options);
 
-  // if (visiblePages > 1) {
-  //   pagination.style.display = 'block';
-  // } else {
-  //   pagination.style.display = 'none';
-  // }
-
   return pagination;
 }

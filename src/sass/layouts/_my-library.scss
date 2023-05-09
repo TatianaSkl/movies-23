@@ -9,16 +9,16 @@
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 20px;
-  line-height: 1,4;
-  color: #FFFFFF;
+  line-height: 1, 4;
+  color: #ffffff;
 
   @include tablet {
     width: 438px;
     margin-top: 80px;
     margin-bottom: 24px;
-  
+
     font-size: 24px;
-    line-height: 1,33;
+    line-height: 1, 33;
   }
 
   @include desktop {
@@ -26,7 +26,7 @@
     margin-bottom: 28px;
     margin-top: 160px;
     font-size: 32px;
-    line-height: 1,12;
+    line-height: 1, 12;
   }
 }
 
@@ -54,4 +54,8 @@
     font-size: 18px;
     line-height: 1, 5;
   }
+}
+
+.library-cards__btn a {
+  color: var(--primary-color);
 }
