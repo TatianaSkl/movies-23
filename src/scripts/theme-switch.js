@@ -1,14 +1,20 @@
-let switchDarkLight = () => {
-  let switcherEl = document.documentElement;
-  let dataTheme = switcherEl.getAttribute('data-theme'),
-    newTheme;
-  newTheme = dataTheme === 'light' ? 'dark' : 'light';
+const switchBtn = document.querySelector('.switch-theme-button');
+const bodyEL = document.body;
 
-  switcherEl.setAttribute('data-theme', newTheme); 
+function changeTheme() {
+  if (bodyEL.classList.contains('light')) {
+    bodyEL.classList.remove('light');
+    localStorage.removeItem('site-theme');
+  } else {
+    bodyEL.classList.add('light');
+    localStorage.setItem('site-theme', 'light');
+  }
+}
 
-  localStorage.setItem('theme', newTheme);
-};
+switchBtn.addEventListener('click', changeTheme);
 
-document
-  .querySelector('#theme-switcher')
-  .addEventListener('click', switchDarkLight);
+const currentTheme = localStorage.getItem('site-theme');
+
+if (currentTheme) {
+  bodyEL.classList.add(currentTheme);
+}
