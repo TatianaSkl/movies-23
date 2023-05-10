@@ -84,4 +84,14 @@ body.light {
   & .button__close {
     background-color: var(--second-color);
   }
+  & .hero__title-movie {
+    @media screen and (max-width: 767px) {
+      color: var(--second-color);
+    }
+  }
+   & .hero__text-movie {
+    @media screen and (max-width: 767px) {
+      color: var(--second-color);
+    }
+  }
 }

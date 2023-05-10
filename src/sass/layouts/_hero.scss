@@ -272,8 +272,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 16px;
-  height: 16px;
   padding: 0;
   border-radius: 50%;
   border: 1px solid var(--primary-color);
@@ -285,16 +283,24 @@
   @include tablet {
     top: 24px;
     right: 24px;
-    width: 24px;
-    height: 24px;
   }
   @include desktop {
     top: 28px;
     right: 28px;
   }
-
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
   &__icon {
+    width: 7px;
+    height: 7px;
     fill: currentColor;
+    @include tablet {
+      width: 11px;
+      height: 11px;
+    }
   }
 }
 .modal-video iframe {
