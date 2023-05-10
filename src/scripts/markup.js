@@ -15,7 +15,7 @@ export function createMarkupFilmsList(moviesData) {
 <img
     class="film-card__img"
     src="${`https://image.tmdb.org/t/p/w500${poster_path}`}"  
-    alt="${title}"
+    alt="${title}" loading='lazy'
   />
 
   <div class="film-card__wrapper">
