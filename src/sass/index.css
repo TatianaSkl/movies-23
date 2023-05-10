@@ -708,6 +708,16 @@ body.light .switch-theme-button {
     background-image: url(/src/images/desktop/switch-w-des-2x.png);
   }
 }
+body.light .page-header__logo {
+  animation: none;
+}
+
+body.light .page-header__logo:hover,
+.page-header__logo:focus {
+  transform: rotate(1turn);
+  color: var(--primary-color);
+}
+
 .hero {
   max-width: 480px;
   margin: 0 auto;

@@ -374,3 +374,14 @@ body.light .switch-theme-button {
     }
   }
 }
+
+body.light .page-header__logo {
+  animation: none;
+}
+
+body.light .page-header__logo:hover,
+.page-header__logo:focus {
+  transform: rotate(1turn); 
+  color: var(--primary-color);
+  // transform: scale(1.1);
+}
