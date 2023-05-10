@@ -1,2 +1,0 @@
-var switchBtn=document.querySelector(".switch-theme-button"),bodyEL=document.body;function changeTheme(){bodyEL.classList.contains("light")?(bodyEL.classList.remove("light"),localStorage.removeItem("site-theme")):(bodyEL.classList.add("light"),localStorage.setItem("site-theme","light"))}switchBtn.addEventListener("click",changeTheme);var currentTheme=localStorage.getItem("site-theme");currentTheme&&bodyEL.classList.add(currentTheme);
-//# sourceMappingURL=my-library.7b7711b4.js.map
