@@ -1,0 +1,2 @@
+(()=>{const e=document.querySelector(".mobile-menu__button"),t=document.querySelector(".mobile-menu__nav-list"),s=document.querySelector(".backdrop");e.addEventListener("click",(()=>{const i="true"===e.getAttribute("aria-expanded")||!1;e.classList.toggle("is-open"),e.setAttribute("aria-expanded",!i),t.classList.toggle("is-open"),s.classList.toggle("is-hidden")})),document.addEventListener("click",(i=>{s.contains(i.target)&&(e.classList.toggle("is-open"),t.classList.toggle("is-open"),s.classList.toggle("is-hidden"))}))})();
+//# sourceMappingURL=my-library.568a84fc.js.map
