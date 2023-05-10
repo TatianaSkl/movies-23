@@ -1,7 +1,14 @@
     <header class="page-header">
         <div class="main-nav container">
             <a href="./index.html" class="page-header__link">
-                <img class="page-header__icon" src="/src/images/logo_cinemania.png" alt="logo">
+                <picture>
+                    <source srcset="/src/images/tablet/logo-tab.png 1x, /src/images/tablet/logo-tab-2x.png 2x" media="(min-width:1200px)">
+                    <source srcset="/src/images/tablet/logo-tab.png 1x, /src/images/tablet/logo-tab-2x.png 2x" media="(min-width:768px)">
+                    <source srcset="/src/images/mobile/logo-mob.png 1x, /src/images/mobile/logo-mob-2x.png 2x" media="(min-width:480px)">
+                    <img class="page-header__icon"
+                            srcset="/src/images/mobile/logo-mob.png 1x, /src/images/mobile/logo-mob-2x.png 2x"
+                            src="/src/images/mobile/logo-mob.png" alt="logo">
+                </picture>
                 <span class="page-header__logo">Cinemania</span>
             </a>
             <nav class="site-nav">
@@ -19,15 +26,21 @@
             </nav>
             <button class="switch-theme-button" type="button" aria-label="Перемикач теми"></button>
         </div>
-        <div class="mobile-menu">
-            <button type="button" class="menu-button" aria-expanded="false" data-menu-button>
+        <div class="mobile-menu container">
+            <img class="page-header__icon" srcset="/src/images/mobile/logo-mob.png 1x, /src/images/mobile/logo-mob-2x.png 2x"
+                src="/src/images/mobile/logo-mob.png" alt="logo">
+            <button type="button" class="mobile-menu__button" aria-expanded="false">
                 MENU
             </button>
-            <!-- <ul class="mobile-menu__nav-list">
-                <li class="mobile-menu__item"><a href="" class="site-nav__link">HOME</a></li>
-                <li class="mobile-menu__item"><a href="" class="site-nav__link">CATALOG</a></li>
-                <li class="mobile-menu__item"><a href="" class="site-nav__link">MY LIBRARY</a></li>
-            </ul> -->
+            <button class="switch-theme-button" type="button" aria-label="Перемикач теми" aria-expanded="false" ></button>
+            <div class="backdrop is-hidden">
+                <ul class="mobile-menu__nav-list"> 
+                    <li class="mobile-menu__item"><a href="" class="mobile-menu-nav__link">HOME</a></li>
+                    <li class="mobile-menu__item"><a href="" class="mobile-menu-nav__link">CATALOG</a></li>
+                    <li class="mobile-menu__item"><a href="" class="mobile-menu-nav__link">MY LIBRARY</a></li>
+                </ul>
+            </div>
         </div>
+        <script type="module" src="/src/scripts/mobile-menu.js"></script>
     </header>
 

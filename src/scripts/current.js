@@ -1,18 +1,19 @@
-// const navLinks = document.querySelectorAll('.site-nav__link');
-// console.log('🚀 ~ file: current.js:2 ~ navLinks:', navLinks);
+// const navMobLinks = document.querySelectorAll('.mobile-menu-nav__link');
+// console.log("🚀 ~ file: current.js:2 ~ navMobLinks:", navMobLinks)
 
-// navLinks.forEach(function (navLink) {
-//   navLink.addEventListener('click', function (event) {
-//     // event.preventDefault();
-//     if (navLink.classList.contains('current')) {
+
+// navMobLinks.forEach(function (navMobLink) {
+//   navMobLinks.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     if (navMobLink.classList.contains('current')) {
 //       return;
 //     }
 
-//     const currentItems = document.querySelectorAll('.site-nav__link.current');
+//     const currentItems = document.querySelectorAll('.mobile-menu-nav__link.current');
 //     currentItems.forEach(function (currentItem) {
 //       currentItem.classList.remove('current');
 //     });
 
-//     navLink.classList.add('current');
+//     navMobLink.classList.add('current');
 //   });
 // });
