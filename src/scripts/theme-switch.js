@@ -1,5 +1,4 @@
 const switchBtn = document.querySelector('.switch-theme-button');
-// console.log("🚀 ~ file: theme-switch.js:2 ~ switchBtn:", switchBtn)
 const bodyEL = document.body;
 
 function changeTheme() {
