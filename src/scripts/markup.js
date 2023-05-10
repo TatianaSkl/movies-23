@@ -11,12 +11,15 @@ export function createMarkupFilmsList(moviesData) {
         release_date,
       } = movie;
       return `<li class="film-card" data-id="${id}">
-
-<img
-    class="film-card__img"
-    src="${`https://image.tmdb.org/t/p/w500${poster_path}`}"  
-    alt="${title}"
-  />
+  <img
+  class="film-card__img"
+  src="${
+    poster_path
+      ? `https://image.tmdb.org/t/p/w500${poster_path}`
+      : 'https://img.freepik.com/free-vector/cinema-concept_1284-12759.jpg?w=2000'
+  }"
+  alt="film"
+/>
 
   <div class="film-card__wrapper">
     <h2 class="film-card__title">${title}</h2>
