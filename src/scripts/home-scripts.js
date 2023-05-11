@@ -1,3 +1,5 @@
+const addBtnRef = document.querySelector('#btn__upcoming');
+
 import {
   getWeekTrendingMovies,
   getUpcomingMovies,

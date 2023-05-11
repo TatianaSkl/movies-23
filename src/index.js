@@ -1,6 +1,12 @@
 import theme from './scripts/theme-switch';
 import hero from './scripts/hero';
+import modalWindow from './scripts/modal-window';
 import heroLibrary from './scripts/hero-library';
 import renderTrendMovie from './scripts/getWeekTrendingMoviesInCatalog';
+// import library from './scripts/library';
+// import onSearch from './scripts/search-films';
 import home from './scripts/home-scripts';
 import onSearch from './scripts/search-films';
+import current from './scripts/current';
+import library from './scripts/library';
+// import modalWindow from './scripts/modal-window';

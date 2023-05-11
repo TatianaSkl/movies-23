@@ -10,7 +10,8 @@ export function createMarkupFilmsList(moviesData) {
         vote_average,
         release_date,
       } = movie;
-      return `<li class="film-card" data-id="${id}">
+
+      return `<li class="film-card js-card" data-id="${id}">
   <img
   class="film-card__img"
   src="${
@@ -18,7 +19,7 @@ export function createMarkupFilmsList(moviesData) {
       ? `https://image.tmdb.org/t/p/w500${poster_path}`
       : 'https://img.freepik.com/free-vector/cinema-concept_1284-12759.jpg?w=2000'
   }"
-  alt="film"
+  alt="${title}" loading='lazy'
 />
 
   <div class="film-card__wrapper">
@@ -51,7 +52,7 @@ export function createMarkupFilmsList(moviesData) {
     .join('');
 }
 
-function getGenreNames(genreIds) {
+export function getGenreNames(genreIds) {
   const genreNames = [];
   const collection = global.genres.genres;
   const res = genreIds.slice(0, 2).map(function (genreId) {

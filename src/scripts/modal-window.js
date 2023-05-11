@@ -1,135 +1,146 @@
-import CatalogApiService from './movies-api';
+import { getMovieDetails } from './movies-api';
 
-const api = new CatalogApiService();
+const filmCards = document.querySelector('.js-film');
+const modBackdrop = document.querySelector('.modal-backdrop');
+const closeBtn = document.querySelector('.modal__close-btn');
+const modalRef = document.querySelector('.modal__wrap');
+const modalListRef = document.querySelector('.cards-film');
 
-const refs = {
-  backdrop: document.querySelector('.backdrop'),
-  modal: document.querySelector('.modal'),
-  gallery: document.querySelector('.catalog__list'), 
-};
-const toggleModal = () => {
-  refs.backdrop.classList.toggle('hidden'); // повернутись
-};
-// натиснути ESP
-window.addEventListener('keydown', event => {
-  if (event.key === 'Escape') refs.backdrop.classList.add('hidden');
-});
-// Клацніть фон
-refs.backdrop.addEventListener('click', event => {
-  if (event.target.className === 'backdrop') {
-    toggleModal();
+// const LibKey = 'myLibrary';
+// const savedMovies = JSON.parse(localStorage.getItem('LibKey')) || [];
+// console.log(savedMovies);
+
+filmCards.addEventListener('click', onOpenModal);
+closeBtn.addEventListener('click', onCloseModal);
+modBackdrop.addEventListener('click', onBackDropClick);
+
+// TODO: Открываем модалку
+export function onOpenModal(event) {
+  const getParentalEl = event.target.closest('.js-card');
+
+  if (!getParentalEl) {
+    return;
   }
-});
+  // записываем id
+  const movieId = getParentalEl.dataset.id;
 
-// натиснути відкрити
-refs.gallery.addEventListener('click', event => {
-  toggleModal();
-  let idOfCard = event.target.closest('.film-card').Id;
-  modalMovie(idOfCard);
-});
+  loadIntoModal(movieId);
 
+  modBackdrop.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+  window.addEventListener('keydown', onEscKeyPress);
+}
 
-export async function modalMovie(Id) {
+// закрываем модалку
+function onCloseModal() {
+  modalListRef.innerHTML = '';
+  document.body.classList.remove('modal-open');
+  modBackdrop.classList.add('is-hidden');
+}
+
+// закрываем по клику на backdrop
+function onBackDropClick(event) {
+  if (event.currentTarget === event.target) {
+    onCloseModal();
+  }
+}
+
+// закрываем по нажатию Escape
+function onEscKeyPress(event) {
+  if (event.code === 'Escape') {
+    onCloseModal();
+    window.removeEventListener('keydown', onEscapeKeyboard);
+  }
+}
+
+// загружаем карточку в модалку
+
+async function loadIntoModal(id) {
   try {
-    const data = await api.getMovieDetails(Id); //повернутись до id
-    const idGenres = response.data;
-    const newGenreMovie = [];
-    idGenres.map(elem => {
-      newGenreMovie.push(elem.name);
-    });
+    const data = await getMovieDetails(id);
 
-    const voteAverage = data.vote_average.toFixed(2);
-    const popularity = data.popularity.toFixed(1);
-    const imageUrl = data.poster_path
-      ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-      : 'https://via.placeholder.com/395x574?text=No+Image';
+    const createModalCard = createCardMarkup(data);
+    modalListRef.innerHTML = createModalCard;
 
-    refs.modal.innerHTML = `
-    <img class="modal__img" src=${imageUrl} alt=${
-      data.original_name
-    } loading="lazy">
-    <div class="modal__items">
-      <h1 class="modal__title">${title}</h1>
-      <p class="modal__rating">Vote / Votes
-        <span class="modal__rating_span">
-          <span class="rating-vote">${voteAverage}</span> /
-          <span class="rating-vote">${data.vote_count}</span>
-        </span>
-      </p>
-      <p class="modal__popularity">Popularity <span>${popularity}</span> </p>
-      <p class="modal__genre">Genre <span>${newGenreMovie.join(' ')}</span></p>
-      <p class="modal__about">ABOUT</p>
-      <p class="modal__description">${data.overview}</p>
-      <button class="button-add" type="button"><span class="button-add__tex">Add to my library</span> </button>
-      <button class="button-remove hidden" type="button"><span class="button-add__tex">Remove from my library</span> </button>
-    </div>`;
+    const filmAddBtn = document.querySelector('.film-add__btn');
 
-    const buttonAdd = document.querySelector('.button-add');
-    const buttonRemove = document.querySelector('.button-remove');
-    const closeModalBtn = document.querySelector('.button__close');
+    filmAddBtn.addEventListener('click', () => {
+      // const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+      // library.find(item => item.id === data.id);
+      // filmAddBtn.textContent = 'Remove from my library';
 
-    closeModalBtn.addEventListener('click', toggleModal);
-    buttonAdd.addEventListener('click', addLS);
-    buttonRemove.addEventListener('click', removeLS);
+      if (filmAddBtn.textContent === 'Add to my library') {
+        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+        // const existingMovie = library.find(item => item.id === movie.id);
+        library.push(data);
+        localStorage.setItem('movieLibrary', JSON.stringify(library));
 
-    const ID_GENRE = idGenres.map(({ id }) => id);
-    const key = 'LibraryMovie';
-    const movieItem = {
-      release_date: data.release_date,
-      id,
-      title: data.title,
-      popularity,
-      vote_average: voteAverage,
-      poster_path: imageUrl,
-      vote_count: data.vote_count,
-      genre_ids: ID_GENRE,
-      overview: data.overview,
-    };
-    function addLS() {
-      try {
-        let objects = null
-          ? undefined
-          : JSON.parse(localStorage.getItem(key)) || [];
-        objects.push(movieItem);
-        localStorage.setItem(key, JSON.stringify(objects));
-        buttonAdd.classList.add('hidden');
-        buttonRemove.classList.remove('hidden');
-      } catch (error) {
-        console.error(error);
+        filmAddBtn.textContent = 'Remove from my library';
       }
-    }
-
-    function removeLS() {
-      try {
-        let objects = null ? undefined : JSON.parse(localStorage.getItem(key));
-        const indexMovie = objects.findIndex(obj => obj.id === id);
-        objects.splice(indexMovie, 1);
-        localStorage.setItem(key, JSON.stringify(objects));
-        buttonAdd.classList.remove('hidden');
-        buttonRemove.classList.add('hidden');
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    function ls() {
-      try {
-        const itemLs = localStorage.getItem(key);
-        const parceLS = null ? undefined : JSON.parse(itemLs);
-        if (parceLS === null) {
-          return;
+      if (filmAddBtn.textContent === 'Remove from my library') {
+        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+        const existingMovie = library.find(item => item.id === data.id);
+        if (existingMovie) {
+          library.splice(existingIndex, 1);
+          localStorage.removeItem('movieLibrary');
+          filmAddBtn.textContent = 'Add to my library';
         }
-        parceLS.map(elm => {
-          if (elm.id === id) {
-            buttonAdd.classList.add('hidden');
-            buttonRemove.classList.remove('hidden');
-          }
-        });
-      } catch (error) {
-        console.error(error);
       }
-    }
-    ls();
-  } catch (error) {
-    console.error(error);
+    });
+  } catch (err) {
+    modalListRef.innerHTML =
+      '<div class="modal__empty">Sorry, info is unavailable</div>';
+    return;
   }
+}
+
+// рендерим разметку в карточку
+function createCardMarkup(data) {
+  const {
+    original_title,
+    id,
+    genre_names,
+    genres,
+    vote_average,
+    poster_path,
+    overview,
+    popularity,
+    vote_count,
+  } = data;
+
+  const genreName = genres ? genres.map(genre => genre.name) : [];
+  const genresList = genreName.slice(0, 2).join(', ');
+
+  return `<li class="film--add" data-id="${id}">
+  <div class="film-add__wrap">
+    <img class="film-add__img" src="https://image.tmdb.org/t/p/original/${poster_path}" alt="${original_title}" loading="lazy" />
+  </div>
+  <div class="film-add__desc">
+    <h2 class="film-add__title">${original_title}</h2>
+
+    <ul class="film-add__list list">
+      <li class="film-add__item">
+        <span class="film-add__subtitle">Vote / Votes</span
+        ><span class="film-add__span votes average"
+          >${vote_average}</span> / <span class="film-add__span votes count"
+          >${vote_count}</span>
+      </li>
+      <li class="film-add__item">
+        <span class="film-add__subtitle">Popularity</span
+        ><span class="film-add__span">${popularity}</span>
+      </li>
+      <li class="film-add__item">
+        <span class="film-add__subtitle">Genre</span
+        ><span class="film-add__span genres">${genresList}</span>
+      </li>
+    </ul>
+
+    <div class="film-add__wrap-desc">
+      <h3 class="film-add__about">About</h3>
+      <p class="film-add__text">${overview}</p>
+    </div>
+
+    <button type="button" class="film-add__btn btn">Add to my library</button>
+  </div>
+</li>`;
 }
