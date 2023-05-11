@@ -1,22 +1,12 @@
-import { loadIntoModal, onOpenModal } from './modal-window';
+// import { loadIntoModal, onOpenModal } from './modal-window';
 
 import { starRating } from './star-rating';
-import { getMovieDetails } from './modal-window';
+// import { getMovieDetails } from './modal-window';
 
 const libraryGallery = document.querySelector('.library-cards__list');
 console.log(libraryGallery);
 function getMovieFromLibrary(movie) {
-  const {
-    original_title,
-    title,
-    poster_path,
-    vote_average,
-    genres,
-    release_date,
-    id,
-  } = movie;
-
- 
+  const { title, poster_path, vote_average, genres, release_date, id } = movie;
 
   if (library.length < 1) {
     return;

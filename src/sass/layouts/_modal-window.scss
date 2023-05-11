@@ -175,7 +175,20 @@
   color: #ffffff;
 
   &.votes {
-    //
+    padding: 1px 4px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #111111;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+
+  &.average {
+    margin-right: 10px;
+  }
+
+  &.count {
+    margin-left: 10px;
   }
 
   &.genres {

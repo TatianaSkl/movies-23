@@ -61,9 +61,11 @@ async function loadIntoModal(id) {
     const filmAddBtn = document.querySelector('.film-add__btn');
 
     filmAddBtn.addEventListener('click', () => {
-      // if (filmAddBtn.textContect === 'Add to my library') {
+      // if (filmAddBtn.textContent === 'Add to my library') {
       addToLibrary(data);
-      // filmAddBtn.innerHTML = 'Remove from my library';
+      filmAddBtn.textContent = 'Remove from my library';
+      // } else {
+      // filmAddBtn.textContent = 'Add to my library';
       // }
     });
   } catch (err) {
@@ -83,9 +85,9 @@ function addToLibrary(movie) {
   const existingMovie = library.find(item => item.id === movie.id);
   const existingIndex = library.indexOf(existingMovie);
   if (existingMovie) {
-    console.log('Фильм есть');
     library.splice(existingIndex, 1);
     localStorage.setItem('movieLibrary', JSON.stringify(library));
+    filmAddBtn.textContent = 'Add to my library';
     return;
   }
 
@@ -94,8 +96,6 @@ function addToLibrary(movie) {
 
   // Сохранять массив в локальном хранилище
   localStorage.setItem('movieLibrary', JSON.stringify(library));
-
-  console.log('Фильм в библиотеке');
 }
 
 // рендерим разметку в карточку
@@ -125,9 +125,9 @@ function createCardMarkup(data) {
     <ul class="film-add__list list">
       <li class="film-add__item">
         <span class="film-add__subtitle">Vote / Votes</span
-        ><span class="film-add__span votes"
-          >${vote_average} / ${vote_count}</span
-        >
+        ><span class="film-add__span votes average"
+          >${vote_average}</span> / <span class="film-add__span votes count"
+          >${vote_count}</span>
       </li>
       <li class="film-add__item">
         <span class="film-add__subtitle">Popularity</span
