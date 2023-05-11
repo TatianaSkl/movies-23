@@ -1,16 +1,15 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { CatalogApiService } from './movies-api';
+// import { CatalogApiService } from './movies-api';
 
-const TUI_VISIBLE_PAGES = 4;
-const moviePage = new CatalogApiService();
-const pagination = document.querySelector('#pagination');
+// const moviePage = new CatalogApiService();
+// const pagination = document.querySelector('#pagination');
 
 export function createPagination(totalItems, visiblePages) {
   const options = {
     totalItems,
     itemsPerPage: 20,
-    visiblePages: visiblePages < 4 ? visiblePages : TUI_VISIBLE_PAGES,
+    visiblePages: 4,
     page: 1,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
@@ -35,12 +34,6 @@ export function createPagination(totalItems, visiblePages) {
   };
 
   const pagination = new Pagination('pagination', options);
-
-  // if (visiblePages > 1) {
-  //   pagination.style.display = 'block';
-  // } else {
-  //   pagination.style.display = 'none';
-  // }
 
   return pagination;
 }

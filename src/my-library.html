@@ -46,16 +46,16 @@
     <script type="module" src="./index.js"></script>
   </head>
 
-  <body>
-    <include src="./partials/header.html"></include>
-    <main>
-      <include src="./partials/hero.html"></include>
-      <!-- <include src="./partials/hero-library.html"></include> -->
-
-      <div>
-        <section class="library-cards container">
-          <div class="library">
-            <ul class="library-cards__list list js-film"></ul>
+<body>
+  <include src="./partials/header.html"></include>
+  <main>
+    <include src="./partials/hero.html"></include>
+    <!-- <include src="./partials/hero-library.html"></include> -->
+    <div>
+       <div>
+        <section class="library-cards">
+          <div class="library container">
+            <ul class="library-cards__list"></ul>
           </div>
         </section>
         <div class="alert__message container">
@@ -68,23 +68,20 @@
             <a href="./catalog.html">Search movie</a>
           </button>
         </div>
-      </div>
-    </main>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/scroll.html"></include>
-    <!-- Modal to one movie -->
-    <!-- Modal to one movie -->
-    <include src="./partials/modal-window.html"></include>
+    </div>
+  </main>
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/scroll.html"></include>
 
-    <!-- library jquery scroll to top-->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./scripts/scroll-to-top.js"></script>
-    <script src="./scripts/theme-switch.js"></script>
-    <script type="module" src="/src/scripts/current-library-page.js"></script>
+  <!-- library jquery scroll to top-->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"
+></script>
+<script src="./scripts/scroll-to-top.js"></script>
+<script src="./scripts/theme-switch.js"></script>
+<script type="module" src="/src/scripts/current-library-page.js"></script>
 
     <!-- base js -->
     <script type="module" src="./index.js"></script>

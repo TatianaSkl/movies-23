@@ -1,4 +1,4 @@
-const switchBtn = document.querySelector('.switch-theme-button');
+const switchBtnMobile = document.querySelector('.switch-theme-button__mobile');
 const bodyEL = document.body;
 
 function changeTheme() {
@@ -11,7 +11,7 @@ function changeTheme() {
   }
 }
 
-switchBtn.addEventListener('click', changeTheme);
+switchBtnMobile.addEventListener('click', changeTheme);
 
 const currentTheme = localStorage.getItem('site-theme');
 

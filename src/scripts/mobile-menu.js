@@ -1,14 +1,26 @@
 (() => {
-  const menuBtnRef = document.querySelector("[data-menu-button]");
-  const mobileMenuRef = document.querySelector("[data-menu]");
-
-  menuBtnRef.addEventListener("click", () => {
+  const menuButton = document.querySelector('.mobile-menu__button');
+  const mobileMenu = document.querySelector('.mobile-menu__nav-list');
+  const backdrop = document.querySelector('.backdrop');
+  
+  menuButton.addEventListener("click", () => {
     const expanded =
-      menuBtnRef.getAttribute("aria-expanded") === "true" || false;
+      menuButton.getAttribute("aria-expanded") === "true" || false;
 
-    menuBtnRef.classList.toggle("is-open");
-    menuBtnRef.setAttribute("aria-expanded", !expanded);
+    menuButton.classList.toggle("is-open");
+    menuButton.setAttribute("aria-expanded", !expanded);
 
-    mobileMenuRef.classList.toggle("is-open");
+    mobileMenu.classList.toggle("is-open");
+    backdrop.classList.toggle("is-hidden");
   });
+
+  document.addEventListener('click', e => {
+    if (backdrop.contains(e.target)) {
+      menuButton.classList.toggle("is-open");
+    
+      mobileMenu.classList.toggle("is-open");
+      backdrop.classList.toggle("is-hidden");
+    }
+  });
+  
 })();

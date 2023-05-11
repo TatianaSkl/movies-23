@@ -29,15 +29,19 @@ input::placeholder {
 .search-input {
   max-width: 224px;
   padding: 10px 20px;
-  color: var(--accent-color);
-  caret-color: var(--accent-color);
+  color: var(--second-color);
   border: 1px solid var(--second-color);
   border-radius: 10px;
   margin-right: 16px;
   outline: none;
+  transition: 250ms;
 
-  color: var(--second-color);
   background-color: transparent;
+
+  &:focus{
+    border: 1px dashed var(--accent-color);
+    transition: 250ms;
+  }
 
   @include tablet {
     max-width: 204px;
@@ -59,9 +63,16 @@ input::placeholder {
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border: transparent;
 
-  stroke: var(--primary-color);
+  stroke: var(--second-color);
   fill: none;
   cursor: pointer;
+  
+
+  & .search-btn__icon{
+    transform: scale(1);
+    transition: 700ms;
+  }
+
 
   &:hover {
     border: 1px solid var(--accent-color);
@@ -71,9 +82,23 @@ input::placeholder {
     background: transparent;
   }
 
+  &:hover .search-btn__icon{
+  transform: scale(1.4);
+  transition: 500ms;
+   
+  }
+
   @include tablet {
     width: 44px;
     height: 44px;
+  }
+}
+
+.light .search-btn{
+  stroke: var(--primary-color);
+
+  &:hover{
+    stroke: var(--accent-color);
   }
 }
 
@@ -109,28 +134,27 @@ input::placeholder {
 }
 
 .catalog__message-text {
-  // margin-left: auto;
-  // margin-right: auto;
   min-width: 280px;
   font-size: 20px;
   line-height: 1.4;
   text-align: center;
-  // color: var(--second-color);
-  color: rgb(10, 46, 87);
+  color: var(--second-color);
 
   @include tablet {
     font-size: 24px;
     line-height: 1.33;
     // color: var(--second-color);
-    color: rgb(10, 46, 87);
   }
 
   @include desktop {
     font-size: 32px;
     line-height: 1.12;
     // color: var(--second-color);
-    color: rgb(10, 46, 87);
   }
+}
+
+.light .catalog__message-text {
+  color: var(--primary-color);
 }
 
 // TODO ======== pagination ==============
@@ -164,7 +188,8 @@ input::placeholder {
 
   &:hover {
     transform: scale(1.07);
-    // box-shadow: 5px 5px 5px 0px #525151; //5px 5px 10px 5px #383838;
+    background-color: transparent;
+    //! box-shadow: 5px 5px 5px 0px #525151; //5px 5px 10px 5px #383838;
   }
 
   @include tablet {
@@ -172,6 +197,10 @@ input::placeholder {
     height: 40px;
   }
 }
+
+// .light #pagination.tui-pagination .tui-page-btn {
+//   border: transparent;
+// }
 
 #pagination.tui-pagination .tui-page-btn:not(:last-child) {
   margin: 0px 8px 0px 0px;
@@ -187,12 +216,17 @@ input::placeholder {
   align-items: center;
   width: 24px;
   height: 24px;
-  border: 1px solid #b7b7b7;
+  border: 1px solid var(--additional-color);
 
   @include tablet {
     width: 40px;
     height: 40px;
   }
+}
+
+.light #pagination.tui-pagination a.tui-page-btn {
+  border: 1px solid var(--alternate-color);
+  color: var(--alternate-color);
 }
 
 .tui-pagination .tui-page-btn.tui-first,
@@ -203,6 +237,11 @@ input::placeholder {
   outline: none;
   border: transparent;
   border-radius: 50%;
+}
+
+.light .tui-pagination.catalog-pagination .tui-page-btn.tui-first,
+.tui-pagination .tui-page-btn.tui-last {
+  border: transparent;
 }
 
 #pagination.tui-pagination .tui-page-btn.tui-first,
@@ -217,6 +256,13 @@ input::placeholder {
     width: 28px;
     height: 28px;
   }
+}
+
+.light #pagination.tui-pagination.catalog-pagination .tui-page-btn.tui-first,
+#pagination.tui-pagination.catalog-pagination .tui-page-btn.tui-prev,
+#pagination.tui-pagination.catalog-pagination .tui-page-btn.tui-next,
+#pagination.tui-pagination.catalog-pagination .tui-page-btn.tui-last {
+  border: transparent;
 }
 
 #pagination.tui-pagination .tui-page-btn.tui-first {
@@ -236,6 +282,15 @@ input::placeholder {
   align-items: center;
 }
 
+.light
+  #pagination.tui-pagination.catalog-pagination
+  .tui-page-btn.tui-is-disabled.tui-first,
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-prev,
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-next,
+#pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-last {
+  border: transparent;
+}
+
 .tui-pagination .tui-page-btn.tui-first,
 .tui-pagination .tui-page-btn.tui-prev,
 .tui-pagination .tui-page-btn.tui-next,
@@ -246,6 +301,15 @@ input::placeholder {
   color: #b7b7b7;
   border: transparent;
   border-radius: 50%;
+}
+
+.light .tui-pagination.catalog-pagination .tui-page-btn.tui-first,
+.tui-pagination .tui-page-btn.tui-prev,
+.tui-pagination .tui-page-btn.tui-next,
+.tui-pagination .tui-page-btn.tui-last,
+.tui-pagination .tui-page-btn.tui-prev-is-ellip,
+.tui-pagination .tui-page-btn.tui-next-is-ellip {
+  border: transparent;
 }
 
 #pagination.tui-pagination .tui-page-btn.tui-first-child span.tui-ico-ellip {
@@ -266,6 +330,13 @@ input::placeholder {
   }
 }
 
+.light
+  #pagination.tui-pagination.catalog-pagination
+  a.tui-page-btn.tui-next-is-ellip.tui-last-child,
+#pagination.tui-pagination a.tui-page-btn.tui-prev-is-ellip.tui-first-child {
+  border: transparent;
+}
+
 .tui-pagination .tui-page-btn.tui-first-child,
 .tui-pagination .tui-page-btn.tui-last-child {
   color: #b7b7b7;
@@ -275,6 +346,11 @@ input::placeholder {
   border-radius: 50%;
 }
 
+.light .tui-pagination.catalog-pagination .tui-page-btn.tui-first-child,
+.tui-pagination .tui-page-btn.tui-last-child {
+  border: transparent;
+}
+
 #pagination.tui-pagination .tui-is-selected,
 #pagination.tui-pagination strong {
   display: flex;
@@ -282,4 +358,9 @@ input::placeholder {
   align-items: center;
   color: #ffffff;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+}
+
+.light #pagination.tui-pagination .tui-is-selected,
+#pagination.tui-pagination strong {
+  color: var(--alternate-color);
 }

@@ -2,6 +2,7 @@
   position: relative;
   min-width: 280px;
   min-height: 402px;
+  background-color: var(--supplemental-color);
 
   border-radius: 5px;
   transform: scale(1);
@@ -48,6 +49,10 @@
     // box-shadow: 5px 5px 5px 0px #000000, 5px 5px 10px 5px #383838;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     cursor: pointer;
+  }
+
+  .light &:hover {
+    box-shadow: 5px 5px 5px 0px #3a3939, 5px 5px 10px 5px #383838;
   }
 
   &__wrapper {

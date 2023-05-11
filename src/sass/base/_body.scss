@@ -38,6 +38,20 @@ body.light {
       }
     }
   }
+  & .heroLibrary__container {
+    @include tablet {
+      background-image: url(../images/tablet/hero-w-tab.png);
+      @include retina {
+        background-image: url(../images/tablet/hero-w-tab-2x.png);
+      }
+    }
+    @include desktop {
+      background-image: url(../images/desktop/hero-w-des.png);
+      @include retina {
+        background-image: url(../images/desktop/hero-w-des-2x.png);
+      }
+    }
+  }
   & .modal-hero {
     background-color: var(--second-color);
   }
@@ -89,9 +103,25 @@ body.light {
       color: var(--second-color);
     }
   }
-   & .hero__text-movie {
+  & .hero__text-movie {
     @media screen and (max-width: 767px) {
       color: var(--second-color);
     }
+  }
+  & .hero__title {
+    @media screen and (max-width: 767px) {
+      color: var(--second-color);
+    }
+  }
+  & .hero__text {
+    @media screen and (max-width: 767px) {
+      color: var(--second-color);
+    }
+  }
+  & .heroLibrary__title {
+    color: var(--second-color);
+  }
+  & .heroLibrary__text {
+    color: var(--second-color);
   }
 }
