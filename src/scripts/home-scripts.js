@@ -1,3 +1,6 @@
+const addBtnRef = document.querySelector('#btn__upcoming');
+import {getMovieDetails} from './modal-window';
+
 import {
   getWeekTrendingMovies,
   getUpcomingMovies,

@@ -10,7 +10,7 @@ export function createMarkupFilmsList(moviesData) {
         vote_average,
         release_date,
       } = movie;
-      return `<li class="film-card" data-id="${id}">
+      return `<li class="film-card js-card" data-id="${id}">
 
 <img
     class="film-card__img"

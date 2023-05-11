@@ -28,7 +28,7 @@ export function showTrending(movies) {
   return movies.map(
     ({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
       return `
-      <li class="trending__item" data-id=${id}>
+      <li class="trending__item js-card" data-id=${id}>
           <img class="trending__img" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
             <div class="trending__meta">
                 <p class="trending__title">${title}</p> 
