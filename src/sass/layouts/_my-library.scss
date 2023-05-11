@@ -55,3 +55,24 @@
     line-height: 1, 5;
   }
 }
+
+.library-cards__list {
+  @media screen and (max-width: 767px) {
+    margin: 16 auto 20 auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @include tablet {
+    margin: 36 auto 44 auto;
+    display: flex;
+    gap: 28px 15px;
+    flex-wrap: wrap;
+  }
+
+  @include desktop {
+    margin: 48 auto 60 auto;
+  }
+}

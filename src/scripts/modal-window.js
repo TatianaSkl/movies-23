@@ -1,7 +1,4 @@
 import { getMovieDetails } from './movies-api';
-import { renderMovieInLibrary} from './library';
-// import {getGenreNames} from './markup';
-import { getGenres } from './movies-api';
 
 const filmCards = document.querySelector('.js-film');
 const modBackdrop = document.querySelector('.modal-backdrop');
@@ -14,13 +11,13 @@ closeBtn.addEventListener('click', onCloseModal);
 modBackdrop.addEventListener('click', onBackDropClick);
 
 // TODO: Открываем модалку
-function onOpenModal(event) {
+export function onOpenModal(event) {
   const getParentalEl = event.target.closest('.js-card');
-  
+
   if (!getParentalEl) {
     return;
   }
-  // TODO: записываем id
+  // записываем id
   const movieId = getParentalEl.dataset.id;
 
   loadIntoModal(movieId);
@@ -30,21 +27,21 @@ function onOpenModal(event) {
   window.addEventListener('keydown', onEscKeyPress);
 }
 
-// TODO: закрываем модалку
+// закрываем модалку
 function onCloseModal() {
   modalListRef.innerHTML = '';
   document.body.classList.remove('modal-open');
   modBackdrop.classList.add('is-hidden');
 }
 
-// TODO: закрываем по клику на backdrop
+// закрываем по клику на backdrop
 function onBackDropClick(event) {
   if (event.currentTarget === event.target) {
     onCloseModal();
   }
 }
 
-// TODO: закрываем по нажатию Escape
+// закрываем по нажатию Escape
 function onEscKeyPress(event) {
   if (event.code === 'Escape') {
     onCloseModal();
@@ -52,22 +49,22 @@ function onEscKeyPress(event) {
   }
 }
 
+// загружаем карточку в модалку
 
-// TODO: загружаем карточку в модалку
-export async function loadIntoModal(id) {
+async function loadIntoModal(id) {
   try {
     const data = await getMovieDetails(id);
-    console.log(data);
-   
 
-
-    const createModalCard = createCardMarkup(data, global.genres);
+    const createModalCard = createCardMarkup(data);
     modalListRef.innerHTML = createModalCard;
 
     const filmAddBtn = document.querySelector('.film-add__btn');
 
     filmAddBtn.addEventListener('click', () => {
+      // if (filmAddBtn.textContect === 'Add to my library') {
       addToLibrary(data);
+      // filmAddBtn.innerHTML = 'Remove from my library';
+      // }
     });
   } catch (err) {
     modalListRef.innerHTML =
@@ -76,13 +73,13 @@ export async function loadIntoModal(id) {
   }
 }
 
-// TODO: добавляем id в localStorage
+//  добавляем id в localStorage
 
 function addToLibrary(movie) {
-  // TODO: Получить массив фильмов из локального хранилища
+  // Получить массив фильмов из локального хранилища
   const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
 
-  // TODO: Проверить наличие фильма в библиотеке
+  //  Проверить наличие фильма в библиотеке
   const existingMovie = library.find(item => item.id === movie.id);
   const existingIndex = library.indexOf(existingMovie);
   if (existingMovie) {
@@ -92,16 +89,16 @@ function addToLibrary(movie) {
     return;
   }
 
-  // TODO: Добавить фильм в массив
+  //  Добавить фильм в массив
   library.push(movie);
 
-  // TODO: Сохранять массив в локальном хранилище
+  // Сохранять массив в локальном хранилище
   localStorage.setItem('movieLibrary', JSON.stringify(library));
 
   console.log('Фильм в библиотеке');
 }
 
-// TODO: рендерим разметку в карточку
+// рендерим разметку в карточку
 function createCardMarkup(data) {
   const {
     original_title,
@@ -151,24 +148,3 @@ function createCardMarkup(data) {
   </div>
 </li>`;
 }
-
-
-// function getGenreNames(genreIds) {
-//   const genreNames = [];
-//   const collection = global.genres.genres;
-//   const res = genreIds.slice(0, 2).map(function (genreId) {
-//     return collection.find(function (genre) {
-//       return genre.id == genreId;
-//     }).name;
-//   });
-//   return res.join(', ');
-// }
-
-// //TODO: Получить массив фильмов из локального хранилища
-// const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-// console.log(library);
-
-// library.forEach(movie => {
-//   renderMovieInLibrary(movie);
-// });
-
