@@ -1,5 +1,5 @@
 .hero {
-  max-width: 480px;
+  // max-width: 480px;
   margin: 0 auto;
   @include tablet {
     max-width: 768px;
@@ -10,7 +10,7 @@
 }
 #hero-bg {
   @media screen and (max-width: 767px) {
-    max-width: 480px;
+    // max-width: 480px;
     height: 380px;
     padding-top: 40px;
     padding-left: 20px;
@@ -44,6 +44,21 @@
     width: 580px;
     padding-top: 118px;
     padding-left: 135px;
+  }
+}
+#hero-content {
+  display: none;
+  @include tablet {
+    display: block;
+    width: 350px;
+    padding-top: 62px;
+    padding-left: 32px;
+    padding-bottom: 62px;
+  }
+  @include desktop {
+    width: 580px;
+    padding-top: 169px;
+    padding-bottom: 169px;
   }
 }
 .hero__container {
@@ -138,6 +153,9 @@
   max-width: 166px;
   font-size: 14px;
   line-height: 1.14;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 16px;
+  }
   @include tablet {
     max-width: 357px;
   }
@@ -166,6 +184,7 @@
   display: none;
   @include tablet {
     display: block;
+    margin-bottom: 32px;
     font-size: 14px;
     line-height: 1.14;
     max-width: 357px;
