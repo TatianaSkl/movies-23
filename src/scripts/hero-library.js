@@ -1,12 +1,12 @@
 import { getDayTrendingMovies, getMovieVideos } from './movies-api';
 import { starRating } from './star-rating';
 
-const heroBg = document.getElementById('hero-bg');
-const heroContent = document.getElementById('hero-content');
-const heroWrapper = document.getElementById('hero__wrapper');
-const heroMovie = document.getElementById('hero-movie');
-const heroImage = document.getElementById('hero-image');
-const heroMovieMob = document.getElementById('hero-movie-mob');
+const heroLibraryBg = document.getElementById('heroLibrary-bg');
+const heroLibraryContent = document.getElementById('heroLibrary-content');
+const heroLibraryWrapper = document.getElementById('heroLibrary__wrapper');
+const heroLibraryMovie = document.getElementById('heroLibrary-movie');
+const heroLibraryImage = document.getElementById('heroLibrary-image');
+const heroLibraryMovieMob = document.getElementById('heroLibrary-movie-mob');
 const modalHero = document.getElementById('modal-hero');
 const closeModalHeroBtn = document.getElementById('modal-hero-close');
 const modalError = document.querySelector('.modal-error');
@@ -19,16 +19,16 @@ export function renderHero() {
     try {
       const movies = data.results;
       if (movies.length === 0) {
-        heroMovie.classList.add('visually-hidden');
+        heroLibraryMovie.classList.add('visually-hidden');
         return;
       } else {
         const randomIndex = Math.floor(Math.random() * movies.length);
         const movie = movies[randomIndex];
         const { backdrop_path, title, overview, vote_average, id } = movie;
 
-        heroBg.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
-        heroImage.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
-        heroMovieMob.innerHTML = `
+        heroLibraryBg.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
+        heroLibraryImage.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
+        heroLibraryMovieMob.innerHTML = `
         <h1 class="hero__title-movie">${title}</h1>
         <div class="hero__wrapper-rating">
         <span class="hero-card__rating">
@@ -53,7 +53,7 @@ export function renderHero() {
         <button class="btn hero__btn-movie" id="modal-hero-open-mob">Watch trailer</button>
       `;
         starRating();
-        heroMovie.innerHTML = `
+        heroLibraryMovie.innerHTML = `
         <h1 class="hero__title-movie">${title}</h1>
         <div class="hero__wrapper-rating">
         <span class="hero-card__rating">
@@ -93,8 +93,8 @@ export function renderHero() {
           window.addEventListener('keydown', onEscKeyPress);
           modalHero.classList.remove('hero-is-hidden');
         }
-        heroContent.classList.add('visually-hidden');
-        heroWrapper.classList.add('visually-hidden');
+          heroLibraryContent.classList.add('visually-hidden');
+          heroLibraryWrapper.classList.add('visually-hidden');
       }
     } catch (error) {
       console.error(error);

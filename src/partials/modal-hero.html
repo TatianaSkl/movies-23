@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="hero-backdrop hero-is-hidden" id="modal-hero">
+        <div class="modal-hero">
+            <button class="hero-close" id="modal-hero-close"><svg class="hero-close__icon">
+                    <use href="./images/icons.svg#icon-close-modal"></use>
+                </svg></button>
+            <div class="modal-video"></div>
+            <div class="modal-error">
+                <p class="hero__text-error">OOPS...<br />We are very sorry!<br />But we couldn’t find the trailer.</p>
+                <picture>
+                    <source srcset="./images/desktop/modal-des.png 1x,
+                            ./images/desktop/modal-des-2x.png 2x" media="(min-width:1280px)">
+                    <source srcset="./images/tablet/modal-tab.png 1x,
+                            ./images/tablet/modal-tab-2x.png 2x" media="(min-width:768px)">
+                    <source srcset="./images/mobile/modal-mob.png 1x,
+                            ./images/mobile/modal-mob-2x.png 2x" media="(min-width:320px)">
+                    <img srcset="./images/desktop/modal-des.png 1x, 
+                            ./images/desktop/modal-des-2x.png 2x" src="./images/desktop/modal-des.png"
+                        alt="movie attributes">
+                </picture>
+            </div>
+        </div>
+    </div>
+</div>
