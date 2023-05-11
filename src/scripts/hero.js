@@ -8,6 +8,7 @@ const heroImage = document.getElementById('hero-image');
 const heroMovieMob = document.getElementById('hero-movie-mob');
 const modalHero = document.getElementById('modal-hero');
 const closeModalHeroBtn = document.getElementById('modal-hero-close');
+const modalError = document.querySelector('.modal-error');
 
 closeModalHeroBtn.addEventListener('click', onCloseModal);
 modalHero.addEventListener('click', onBackdropClick);
@@ -124,20 +125,6 @@ export function showMovieTrailer(movieId) {
     getMovieVideos(movieId).then(data => {
       const videos = data.results.filter(video => video.type === 'Trailer');
       if (videos.length === 0) {
-        const modalError = document.querySelector('.modal-error');
-        modalError.innerHTML = `<p>OOPS...
-        We are very sorry!
-        But we couldn’t find the trailer.</p>
-      <picture>
-        <source srcset="./images/desktop/modal-des.png 1x,
-                    ./images/desktop/modal-des-2x.png 2x" media="(min-width:1280px)">
-        <source srcset="./images/tablet/modal-tab.png 1x,
-                    ./images/tablet/modal-tab-2x.png 2x" media="(min-width:768px)">
-        <source srcset="./images/mobile/modal-mob.png 1x,
-                    ./images/mobile/modal-mob-2x.png 2x" media="(min-width:320px)">
-        <img srcset="./images/desktop/modal-des.png 1x, 
-                    ./images/desktop/modal-des-2x.png 2x" src="./images/desktop/modal-des.png" alt="movie attributes">
-      </picture>`;
         return;
       }
       const videoKey = videos[0].key;
@@ -146,6 +133,7 @@ export function showMovieTrailer(movieId) {
       modalVideo.innerHTML = `<iframe src="${trailerUrl}" title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
           allowfullscreen></iframe>`;
+      modalError.classList.add('hero-is-hidden');
     });
   } catch (error) {
     console.error(error);

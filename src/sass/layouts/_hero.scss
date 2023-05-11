@@ -322,6 +322,35 @@
     height: 300px;
   }
 }
+.modal-error {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hero__text-error {
+  line-height: 1.19;
+  margin-bottom: 24px;
+  @include tablet {
+    padding-top: 88px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
+  @include desktop {
+    padding-top: 100px;
+  }
+}
+.modal-error picture {
+  margin: 0 auto;
+  @include tablet {
+    position: absolute;
+    top: 40%;
+    right: -5%;
+  }
+  @include desktop {
+    top: 1%;
+    right: -8%;
+  }
+}
 .hero-rating {
   display: flex;
   align-items: flex-end;
