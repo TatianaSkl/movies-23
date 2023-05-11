@@ -6,6 +6,10 @@ const closeBtn = document.querySelector('.modal__close-btn');
 const modalRef = document.querySelector('.modal__wrap');
 const modalListRef = document.querySelector('.cards-film');
 
+// const LibKey = 'myLibrary';
+// const savedMovies = JSON.parse(localStorage.getItem('LibKey')) || [];
+// console.log(savedMovies);
+
 filmCards.addEventListener('click', onOpenModal);
 closeBtn.addEventListener('click', onCloseModal);
 modBackdrop.addEventListener('click', onBackDropClick);
@@ -61,41 +65,33 @@ async function loadIntoModal(id) {
     const filmAddBtn = document.querySelector('.film-add__btn');
 
     filmAddBtn.addEventListener('click', () => {
-      // if (filmAddBtn.textContent === 'Add to my library') {
-      addToLibrary(data);
-      filmAddBtn.textContent = 'Remove from my library';
-      // } else {
-      // filmAddBtn.textContent = 'Add to my library';
-      // }
+      // const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+      // library.find(item => item.id === data.id);
+      // filmAddBtn.textContent = 'Remove from my library';
+
+      if (filmAddBtn.textContent === 'Add to my library') {
+        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+        // const existingMovie = library.find(item => item.id === movie.id);
+        library.push(data);
+        localStorage.setItem('movieLibrary', JSON.stringify(library));
+
+        filmAddBtn.textContent = 'Remove from my library';
+      }
+      if (filmAddBtn.textContent === 'Remove from my library') {
+        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+        const existingMovie = library.find(item => item.id === data.id);
+        if (existingMovie) {
+          library.splice(existingIndex, 1);
+          localStorage.removeItem('movieLibrary');
+          filmAddBtn.textContent = 'Add to my library';
+        }
+      }
     });
   } catch (err) {
     modalListRef.innerHTML =
       '<div class="modal__empty">Sorry, info is unavailable</div>';
     return;
   }
-}
-
-//  добавляем id в localStorage
-
-function addToLibrary(movie) {
-  // Получить массив фильмов из локального хранилища
-  const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-
-  //  Проверить наличие фильма в библиотеке
-  const existingMovie = library.find(item => item.id === movie.id);
-  const existingIndex = library.indexOf(existingMovie);
-  if (existingMovie) {
-    library.splice(existingIndex, 1);
-    localStorage.setItem('movieLibrary', JSON.stringify(library));
-    filmAddBtn.textContent = 'Add to my library';
-    return;
-  }
-
-  //  Добавить фильм в массив
-  library.push(movie);
-
-  // Сохранять массив в локальном хранилище
-  localStorage.setItem('movieLibrary', JSON.stringify(library));
 }
 
 // рендерим разметку в карточку
