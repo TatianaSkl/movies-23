@@ -48,7 +48,7 @@ export function createMarkupFilmsList(moviesData) {
     .join('');
 }
 
-function getGenreNames(genreIds) {
+export function getGenreNames(genreIds) {
   const genreNames = [];
   const collection = global.genres.genres;
   const res = genreIds.slice(0, 2).map(function (genreId) {

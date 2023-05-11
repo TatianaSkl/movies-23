@@ -1,5 +1,7 @@
 import { getMovieDetails } from './movies-api';
 import { renderMovieInLibrary} from './library';
+// import {getGenreNames} from './markup';
+import { getGenres } from './movies-api';
 
 const filmCards = document.querySelector('.js-film');
 const modBackdrop = document.querySelector('.modal-backdrop');
@@ -14,7 +16,7 @@ modBackdrop.addEventListener('click', onBackDropClick);
 // TODO: Открываем модалку
 function onOpenModal(event) {
   const getParentalEl = event.target.closest('.js-card');
-  // console.log(getParentalEl);
+  
   if (!getParentalEl) {
     return;
   }
@@ -56,8 +58,10 @@ export async function loadIntoModal(id) {
   try {
     const data = await getMovieDetails(id);
     console.log(data);
+   
 
-    const createModalCard = createCardMarkup(data);
+
+    const createModalCard = createCardMarkup(data, global.genres);
     modalListRef.innerHTML = createModalCard;
 
     const filmAddBtn = document.querySelector('.film-add__btn');
@@ -103,13 +107,16 @@ function createCardMarkup(data) {
     original_title,
     id,
     genre_names,
-    release_date,
+    genres,
     vote_average,
     poster_path,
     overview,
     popularity,
     vote_count,
   } = data;
+
+  const genreName = genres ? genres.map(genre => genre.name) : [];
+  const genresList = genreName.slice(0, 2).join(', ');
 
   return `<li class="film--add" data-id="${id}">
   <div class="film-add__wrap">
@@ -131,19 +138,31 @@ function createCardMarkup(data) {
       </li>
       <li class="film-add__item">
         <span class="film-add__subtitle">Genre</span
-        ><span class="film-add__span"></span>
+        ><span class="film-add__span genres">${genresList}</span>
       </li>
     </ul>
 
     <div class="film-add__wrap-desc">
-      <h3 class="film-add__about"></h3>
-      <p class="film-add__text"></p>
+      <h3 class="film-add__about">About</h3>
+      <p class="film-add__text">${overview}</p>
     </div>
 
     <button type="button" class="film-add__btn btn">Add to my library</button>
   </div>
 </li>`;
 }
+
+
+// function getGenreNames(genreIds) {
+//   const genreNames = [];
+//   const collection = global.genres.genres;
+//   const res = genreIds.slice(0, 2).map(function (genreId) {
+//     return collection.find(function (genre) {
+//       return genre.id == genreId;
+//     }).name;
+//   });
+//   return res.join(', ');
+// }
 
 // //TODO: Получить массив фильмов из локального хранилища
 // const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
