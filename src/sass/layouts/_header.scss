@@ -33,9 +33,9 @@ a {
   @include tablet {
     display: flex;
     align-items: center;
-    inline-size: fit-content;
-    margin: 0 auto;
-  }
+    justify-content: space-between;
+    // inline-size: fit-content;
+      }
 }
 
 .site-nav {
@@ -161,7 +161,7 @@ a {
   //   }
   @include tablet {
     display: block;
-    margin-right: 48px;
+    // margin-right: 48px;
     margin-left: 8px;
     font-weight: 400;
     font-size: 24px;
@@ -171,7 +171,7 @@ a {
   }
 
   @include desktop {
-    margin-right: 307px;
+    // margin-right: 307px;
     margin-left: 8px;
   }
 }
@@ -196,14 +196,14 @@ a {
   height: 16px;
 
   @include tablet {
-    margin-left: 175px;
+    // margin-left: 175px;
     width: 54px;
     height: 20px;
-    margin-left: 175px;
+    // margin-left: 175px;
   }
 
   @include desktop {
-    margin-left: 417px;
+    // margin-left: 417px;
     width: 60px;
     height: 24px;
     cursor: pointer;

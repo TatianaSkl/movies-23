@@ -1,18 +1,16 @@
-// const navLinks = document.querySelectorAll('.site-nav__link');
-// console.log('🚀 ~ file: current.js:2 ~ navLinks:', navLinks);
+const navLinks = document.querySelectorAll('.site-nav__link');
+const navLinksMob = document.querySelectorAll('.mobile-menu-nav__link');
 
-// navLinks.forEach(function (navLink) {
-//   navLink.addEventListener('click', function (event) {
-//     // event.preventDefault();
-//     if (navLink.classList.contains('current')) {
-//       return;
-//     }
+const homeLink = document.querySelector('.site-nav__link[href="./index.html"]');
+if (homeLink) {
+  homeLink.classList.add('current');
+}
 
-//     const currentItems = document.querySelectorAll('.site-nav__link.current');
-//     currentItems.forEach(function (currentItem) {
-//       currentItem.classList.remove('current');
-//     });
+navLinks.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('current');
+  } else {
+    link.classList.remove('current');
+  }
+});
 
-//     navLink.classList.add('current');
-//   });
-// });
