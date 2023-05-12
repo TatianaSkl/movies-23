@@ -1,46 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinemania</title>
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="./favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="./favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
-    <!-- base style -->
-    <link rel="stylesheet" href="./sass/index.scss" />
-  </head>
 
   <body>
     <include src="./partials/header.html"></include>
@@ -53,34 +12,44 @@
           <ul class="library-cards__list js-film"></ul>
         </div>
 
-        <div class="alert__message visually-hidden">
-          <h2 class="library-cards__sorry">
-            OOPS...<br />
-            We are very sorry!<br />
-            You don’t have any movies at your library.
-          </h2>
-        </div>
+<body>
+  <include src="./partials/header.html"></include>
+  <main>
+    <include src="./partials/hero-library.html"></include>
 
-        <button type="button" class="library-cards__btn btn">
-          <a href="./catalog.html">Search movie</a>
-        </button>
-      </section>
+    <!-- <div> -->
+    <section class="library-cards container">
+      <div class="library">
+        <ul class="library-cards__list js-film"></ul>
+      </div>
 
-      <!-- </div> -->
-    </main>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal-hero.html"></include>
-    <include src="./partials/scroll.html"></include>
-    <include src="./partials/modal-window.html"></include>
+      <div class="alert__message visually-hidden">
+        <h2 class="library-cards__sorry">
+          OOPS...<br />
+          We are very sorry!<br />
+          You don’t have any movies at your library.
+        </h2>
+      </div>
 
-    <!-- library jquery scroll to top-->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./scripts/scroll-to-top.js"></script>
-    <!-- base js -->
-    <script type="module" src="./my-library.js"></script>
-  </body>
+      <button type="button" class="library-cards__btn btn">
+        <a href="./catalog.html">Search movie</a>
+      </button>
+    </section>
+
+    <!-- </div> -->
+  </main>
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/modal-students.html"></include>
+  <include src="./partials/modal-hero.html"></include>
+  <include src="./partials/scroll.html"></include>
+  <include src="./partials/modal-window.html"></include>
+
+  <!-- library jquery scroll to top-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="./scripts/scroll-to-top.js"></script>
+  <!-- base js -->
+  <script type="module" src="./my-library.js"></script>
+</body>
+
 </html>

@@ -125,7 +125,7 @@ async function remindMe(idMovie) {
         const library = JSON.parse(localStorage.getItem(LibKey)) || [];
         library.push(data);
         localStorage.setItem(LibKey, JSON.stringify(library));
-        btn.textContent = 'Remove from my library';
+        btn.textContent = 'Added to my library';
       } else {
         return;
       }
