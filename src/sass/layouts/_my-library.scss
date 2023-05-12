@@ -9,8 +9,8 @@
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 20px;
-  line-height: 1, 4;
-  color: #ffffff;
+  line-height: 1.4;
+  color: var(--second-color);
 
   @include tablet {
     width: 438px;
@@ -18,7 +18,7 @@
     margin-bottom: 24px;
 
     font-size: 24px;
-    line-height: 1, 33;
+    line-height: 1.33;
   }
 
   @include desktop {
@@ -26,7 +26,7 @@
     margin-bottom: 28px;
     margin-top: 160px;
     font-size: 32px;
-    line-height: 1, 12;
+    line-height: 1.12;
   }
 }
 
@@ -37,11 +37,9 @@
   padding: 12px, 24px;
   margin-bottom: 42px;
   font-size: 12px;
-  line-height: 1, 16;
-  color: #ffffff;
+  line-height: 1.16;
+  color: var(--primary-color);
 
-  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  border-radius: 74px;
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -51,16 +49,17 @@
     border: 1px solid var(--accent-color);
     background: var(--second-color);
   }
+
   @include tablet {
     margin-bottom: 60px;
     font-size: 14px;
-    line-height: 1, 14;
+    line-height: 1.43;
   }
 
   @include desktop {
     margin-bottom: 108px;
     font-size: 18px;
-    line-height: 1, 5;
+    line-height: 1.5;
   }
 }
 
@@ -87,4 +86,8 @@
 
 .library-cards__btn a {
   color: var(--primary-color);
-}
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }}
