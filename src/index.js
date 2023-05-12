@@ -3,3 +3,4 @@ import './scripts/hero';
 import './scripts/modal-window';
 import './scripts/home-scripts';
 import './scripts/current';
+import './scripts/mobile-menu';
