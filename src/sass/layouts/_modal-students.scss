@@ -2,10 +2,26 @@ body.modal-open {
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
 .modal {
   position: absolute;
   width: 280px;
-  height: auto;
+  height: 100%;
   padding: 20px;
   top: 50%;
   left: 50%;
@@ -17,18 +33,19 @@ body.modal-open {
   align-items: center;
 
   background-color: var(--primary-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  box-shadow: 0px 0px 60px var(--accent-color), 0px 1px 1px var(--accent-color),
+    0px 0px 1px var(--accent-color);
+  border-radius: 10px;
 
   @include tablet {
-    width: 768px;
+    width: 540px;
     height: 100%;
   }
 
   @include desktop {
-    width: 800px;
-    height: 100%;
+    width: 808px;
+    height: 90%;
+    overflow: auto;
   }
 
   &-close {
@@ -40,29 +57,26 @@ body.modal-open {
     right: 10px;
     width: 30px;
     height: 30px;
-    color: var(--supplemental-color);
+    fill: var(--supplemental-color);
 
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    background-color: var(--primary-color);
+    background-color: transparent;
 
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 
     &:hover {
-      fill: var(--logo-color);
+      fill: var(--accent-color);
       transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    &-close-icon {
-      fill: currentColor;
-    }
   }
 }
 
 .team__title {
   padding-top: 13px;
-  color: black;
+  color: var(--second-color);
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -70,9 +84,8 @@ body.modal-open {
   line-height: 35px;
   margin-bottom: 20px;
   text-align: center;
-  text-shadow: 1px 1px 1px #ccc, 1px -1px 1px #ccc, -1px 1px 1px #ccc,
-    -1px -1px 1px #ccc;
-  transition: all 1s;
+  transition: all 700ms;
+  cursor: default;
 
   &:hover,
   &:focus {
@@ -84,23 +97,6 @@ body.modal-open {
     margin-bottom: 30px;
     font-size: 30px;
   }
-}
-
-.team__title:after {
-  content: '';
-  display: block;
-  position: relative;
-  z-index: -1;
-  width: 100%;
-  margin: auto;
-  border-bottom: 3px solid black;
-  bottom: 0.15em;
-  transition: all 1s;
-}
-
-H1:hover:after {
-  width: 0%;
-  border-bottom-width: 1px;
 }
 
 .team__box {
@@ -129,11 +125,15 @@ H1:hover:after {
   align-items: center;
   flex-direction: column;
   width: 230px;
-  transition: transform 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     transform: scale(1.05);
+  }
+
+  &:hover .team__name{
+    color: var(--accent-color);
   }
 
   @media screen and (min-width: 768px) {
@@ -152,24 +152,25 @@ H1:hover:after {
 }
 
 .team__photo {
-  height: auto;
+  height: 100px;
   width: 100px;
-  border: 2px;
   margin: auto;
   border-radius: 50px;
-  box-shadow: 0px 0px 3px 5px #ccc;
+  cursor: default;
+
+  @include tablet{
+    height: 140px;
+    width: 140px;
+    border-radius: 70px;
+  }
 }
 
 .team__name {
   font-size: 18px;
   font-weight: 600;
-  color: black;
+  color: var(--second-color);
   transition-duration: 0.5s;
-
-  &:hover,
-  &:focus {
-    color: #ff6b08;
-  }
+  cursor: default;
 
   @media screen and (min-width: 768px) {
     font-size: 19px;
@@ -185,6 +186,7 @@ H1:hover:after {
   font-size: 15px;
   font-weight: 500;
   color: gray;
+  cursor: default;
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
@@ -198,7 +200,7 @@ H1:hover:after {
   outline: none;
   color: transparent;
   background: transparent;
-  cursor: pointer;
+  cursor: default;
   position: relative;
   z-index: 0;
   border-radius: 10%;
@@ -210,38 +212,21 @@ H1:hover:after {
   }
 }
 
-.team__github {
-  &:hover,
-  &:focus {
-    fill: #ff6b08;
-    transition-duration: 0.5s;
+.team__link{
+  fill: var(--second-color);
+  transition: 250ms;
+
+  &:hover{
+    fill: var(--accent-color);
+    transition: 250ms;
   }
 }
 
-.closeModalAnimationTeam {
-  animation: closingTeam 0.4s linear none;
-}
-
-.openModalAnimationTeam {
-  animation: openingTeam 0.4s linear none;
-}
-
-@keyframes openingTeam {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(50%);
-  }
-}
-
-@keyframes closingTeam {
-  from {
-    transform: translateX(50%);
-  }
-
-  to {
-    transform: translateX(100%);
-  }
+.footer__link{
+  color: var(--second-color);
+  transition: 250ms;
+  &:hover {
+      color: var(--accent-color);
+      transition: 250ms;
+    }
 }
