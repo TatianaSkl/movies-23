@@ -1,16 +1,20 @@
-// import { loadIntoModal, onOpenModal } from './modal-window';
+import {
+  loadIntoModal,
+  onOpenModal,
+  getMovieFromLibrary,
+} from './modal-window';
+import {filmCards } from './modal-window';
 
 import { starRating } from './star-rating';
-// import { getMovieDetails } from './modal-window';
+import { getMovieDetails } from './modal-window';
+
+const LibKey = 'myLibrary';
 
 const libraryGallery = document.querySelector('.library-cards__list');
+const filmCards = document.querySelector('.js-film');
 console.log(libraryGallery);
 function getMovieFromLibrary(movie) {
   const { title, poster_path, vote_average, genres, release_date, id } = movie;
-
-  if (library.length < 1) {
-    return;
-  }
 
   const genresName = genres
     .map(genre => genre.name)
@@ -57,10 +61,18 @@ function getMovieFromLibrary(movie) {
 }
 
 // //TODO: Получить массив фильмов из локального хранилища
-const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+const library = JSON.parse(localStorage.getItem(LibKey)) || [];
 console.log(library);
 
 library.forEach(movie => {
-  // renderMovieInLibrary(movie);
   getMovieFromLibrary(movie);
+  console.log(movie);
 });
+
+// function changeBtnLibrary(filmsId, filmBtn) {
+//   if (getMovieFromLibrary(filmsId)) {
+//     filmBtn.innerHTML = 'Remove from Library';
+//   } else {
+//     filmBtn.innerHTML = 'Add to Library';
+//   }
+// }

@@ -1,9 +1,5 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-// import { CatalogApiService } from './movies-api';
-
-// const moviePage = new CatalogApiService();
-// const pagination = document.querySelector('#pagination');
 
 export function createPagination(totalItems, visiblePages) {
   const options = {

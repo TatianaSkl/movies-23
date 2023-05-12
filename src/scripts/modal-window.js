@@ -6,9 +6,7 @@ const closeBtn = document.querySelector('.modal__close-btn');
 const modalRef = document.querySelector('.modal__wrap');
 const modalListRef = document.querySelector('.cards-film');
 
-// const LibKey = 'myLibrary';
-// const savedMovies = JSON.parse(localStorage.getItem('LibKey')) || [];
-// console.log(savedMovies);
+const LibKey = 'myLibrary';
 
 filmCards.addEventListener('click', onOpenModal);
 closeBtn.addEventListener('click', onCloseModal);
@@ -21,15 +19,31 @@ export function onOpenModal(event) {
   if (!getParentalEl) {
     return;
   }
+
   // записываем id
   const movieId = getParentalEl.dataset.id;
+  console.log(movieId);
 
+  // let library = JSON.parse(localStorage.getItem(LibKey)) || [];
+  // console.log(library);
+  // let filmIdsArr = library.map(item => item.id);
+  // console.log(filmIdsArr);
+  // const filmID = filmIdsArr.includes(movieId);
+
+  // if (filmID) {
+  //   filmAddBtn.textContent = 'Remove from my library';
+  // }
+  // else {
+  //   filmAddBtn.textContent = 'Add to my library';
+  // }
   loadIntoModal(movieId);
 
   modBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
   window.addEventListener('keydown', onEscKeyPress);
 }
+
+// Пеоебираем библиотеку хранилища
 
 // закрываем модалку
 function onCloseModal() {
@@ -53,11 +67,27 @@ function onEscKeyPress(event) {
   }
 }
 
+function addToLibraryFilm(data) {
+  const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+
+  library.push(data);
+  localStorage.setItem(LibKey, JSON.stringify(library));
+}
+
+export function getMovieFromLibrary(movieId) {
+  const library = JSON.parse(localStorage.getItem(LibKey)) || {};
+  return library[movieId];
+}
 // загружаем карточку в модалку
 
-async function loadIntoModal(id) {
+export async function loadIntoModal(idMovie) {
+  let library = JSON.parse(localStorage.getItem(LibKey)) || [];
+  console.log(library);
+  let filmIdsArr = library.map(item => item.id);
+  console.log(filmIdsArr);
+
   try {
-    const data = await getMovieDetails(id);
+    const data = await getMovieDetails(idMovie);
 
     const createModalCard = createCardMarkup(data);
     modalListRef.innerHTML = createModalCard;
@@ -65,26 +95,28 @@ async function loadIntoModal(id) {
     const filmAddBtn = document.querySelector('.film-add__btn');
 
     filmAddBtn.addEventListener('click', () => {
-      // const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-      // library.find(item => item.id === data.id);
-      // filmAddBtn.textContent = 'Remove from my library';
-
       if (filmAddBtn.textContent === 'Add to my library') {
-        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-        // const existingMovie = library.find(item => item.id === movie.id);
-        library.push(data);
-        localStorage.setItem('movieLibrary', JSON.stringify(library));
+        addToLibraryFilm(data);
 
         filmAddBtn.textContent = 'Remove from my library';
-      }
-      if (filmAddBtn.textContent === 'Remove from my library') {
-        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-        const existingMovie = library.find(item => item.id === data.id);
-        if (existingMovie) {
-          library.splice(existingIndex, 1);
-          localStorage.removeItem('movieLibrary');
-          filmAddBtn.textContent = 'Add to my library';
-        }
+      } else {
+        // получаем массив фильмов из хранилища
+        let library = JSON.parse(localStorage.getItem(LibKey)) || [];
+        console.log(library);
+        // находим фильм по id
+        let filmLS = library.find(item => item.id === data.id);
+        console.log(filmLS);
+        // определяем индекс филма в массиве
+        let indexFilm = library.indexOf(filmLS);
+        console.log(indexFilm);
+        // удаляем фильм из массива
+        const deleteFilm = library.splice(indexFilm, 1);
+        console.log(deleteFilm);
+        // сохраняем новый массив в хранилище
+        localStorage.setItem(LibKey, JSON.stringify(library));
+        filmAddBtn.textContent = 'Add to my library';
+        return;
+        // console.log(library);
       }
     });
   } catch (err) {
