@@ -708,7 +708,6 @@ body.light .mobile-menu__nav-list {
   visibility: visible;
   width: 204px;
   height: 100%;
-  position: relative;
 }
 
 .backdrop {
