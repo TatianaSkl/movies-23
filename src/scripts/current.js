@@ -1,5 +1,5 @@
 const navLinks = document.querySelectorAll('.site-nav__link');
-const navLinksMob = document.querySelectorAll('.mobile-menu-nav__link');
+// const navLinksMob = document.querySelectorAll('.mobile-menu-nav__link');
 
 const homeLink = document.querySelector('.site-nav__link[href="./index.html"]');
 if (homeLink) {
