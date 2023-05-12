@@ -7,13 +7,9 @@ import { starRating } from './star-rating';
 const LibKey = 'myLibrary';
 
 const libraryGallery = document.querySelector('.library-cards__list');
-// const filmCards = document.querySelector('.js-film');
 const alertMessage = document.querySelector('.alert__message');
-// console.log(libraryGallery);
 
-// filmCards.addEventListener('click', onOpenModal);
-
-function getMovieFromLib(movie) {
+export function getMovieFromLib(movie) {
   const { title, poster_path, vote_average, genres, release_date, id } = movie;
 
   const genresName = genres
@@ -74,16 +70,14 @@ library.forEach(movie => {
   getMovieFromLib(movie);
 });
 
-// function getMovie(library) {
-//   if (library.length < 1) {
-//     alertMessage.classList.remove('visually-hidden');
-
-//   } else {
-//     alertMessage.classList.add('visually-hidden');
-
-//   }
-//      library.forEach(movie => {
-//         getMovieFromLib(movie);
-//       });
+// export function getMovie() {
+//   const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+// if (library.length < 1) {
+//   alertMessage.classList.remove('visually-hidden');
+// } else {
+//   alertMessage.classList.add('visually-hidden');
 // }
-// getMovie(library);
+//   library.forEach(movie => {
+//     getMovieFromLib(movie);
+//   });
+// }

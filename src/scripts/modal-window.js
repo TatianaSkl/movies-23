@@ -1,4 +1,5 @@
 import { getMovieDetails } from './movies-api';
+// import { renderMovies } from './library';
 
 const filmCards = document.querySelector('.js-film');
 const modBackdrop = document.querySelector('.modal-backdrop');
@@ -66,7 +67,6 @@ export async function loadIntoModal(idMovie) {
 
   const filmIdsArr = library.map(item => item.id);
 
-
   try {
     const data = await getMovieDetails(idMovie);
 
@@ -86,24 +86,26 @@ export async function loadIntoModal(idMovie) {
         addToLibraryFilm(data);
 
         filmAddBtn.textContent = 'Remove from my library';
+        onCloseModal();
       } else {
         // получаем массив фильмов из хранилища
         const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-       
+
         // находим фильм по id
         const filmLS = library.find(item => item.id === data.id);
-       
+
         // определяем индекс филма в массиве
         const indexFilm = library.indexOf(filmLS);
-        
+
         // удаляем фильм из массива
         const deleteFilm = library.splice(indexFilm, 1);
-        
+
         // сохраняем новый массив в хранилище
         localStorage.setItem(LibKey, JSON.stringify(library));
         filmAddBtn.textContent = 'Add to my library';
+
+        onCloseModal();
         return;
-        
       }
     });
   } catch (err) {
