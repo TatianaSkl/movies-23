@@ -55,6 +55,31 @@ body.light {
   & .modal-hero {
     background-color: var(--second-color);
   }
+  & .modal__wrap {
+    background-color: var(--second-color);
+  }
+  & .modal__close-btn {
+    background-color: var(--second-color);
+    color: var(--primary-color);
+  }
+  & .film-add__title {
+    color: var(--primary-color);
+  }
+  & .film-add__subtitle {
+    color: var(--primary-color);
+  }
+  & .film-add__span {
+    color: var(--primary-color);
+  }
+  & .film-add__about {
+    color: var(--primary-color);
+  }
+  & .film-add__text {
+    color: var(--further-color);
+  }
+  & .film-add__btn {
+    color: var(--primary-color);
+  }
   & .hero-close {
     border: 1px solid var(--second-color);
     border-color: var(--second-color);
