@@ -1,18 +1,20 @@
 import {
-  loadIntoModal,
-  onOpenModal,
-  getMovieFromLibrary,
+  onOpenModal
 } from './modal-window';
 import {filmCards } from './modal-window';
 
 import { starRating } from './star-rating';
-import { getMovieDetails } from './modal-window';
+// import { getMovieDetails } from './modal-window';
 
 const LibKey = 'myLibrary';
 
 const libraryGallery = document.querySelector('.library-cards__list');
 const filmCards = document.querySelector('.js-film');
 console.log(libraryGallery);
+
+filmCards.addEventListener('click', onOpenModal);
+
+
 function getMovieFromLibrary(movie) {
   const { title, poster_path, vote_average, genres, release_date, id } = movie;
 
@@ -69,10 +71,3 @@ library.forEach(movie => {
   console.log(movie);
 });
 
-// function changeBtnLibrary(filmsId, filmBtn) {
-//   if (getMovieFromLibrary(filmsId)) {
-//     filmBtn.innerHTML = 'Remove from Library';
-//   } else {
-//     filmBtn.innerHTML = 'Add to Library';
-//   }
-// }
