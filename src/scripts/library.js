@@ -1,16 +1,20 @@
-// import { loadIntoModal, onOpenModal } from './modal-window';
+// import { onOpenModal } from './modal-window';
+// import { filmCards } from './modal-window';
 
 import { starRating } from './star-rating';
 // import { getMovieDetails } from './modal-window';
 
-const libraryGallery = document.querySelector('.library-cards__list');
-console.log(libraryGallery);
-function getMovieFromLibrary(movie) {
-  const { title, poster_path, vote_average, genres, release_date, id } = movie;
+const LibKey = 'myLibrary';
 
-  if (library.length < 1) {
-    return;
-  }
+const libraryGallery = document.querySelector('.library-cards__list');
+// const filmCards = document.querySelector('.js-film');
+const alertMessage = document.querySelector('.alert__message');
+// console.log(libraryGallery);
+
+// filmCards.addEventListener('click', onOpenModal);
+
+function getMovieFromLib(movie) {
+  const { title, poster_path, vote_average, genres, release_date, id } = movie;
 
   const genresName = genres
     .map(genre => genre.name)
@@ -57,10 +61,29 @@ function getMovieFromLibrary(movie) {
 }
 
 // //TODO: Получить массив фильмов из локального хранилища
-const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-console.log(library);
+const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+// console.log(library);
+
+if (library.length < 1) {
+  alertMessage.classList.remove('visually-hidden');
+} else {
+  alertMessage.classList.add('visually-hidden');
+}
 
 library.forEach(movie => {
-  // renderMovieInLibrary(movie);
-  getMovieFromLibrary(movie);
+  getMovieFromLib(movie);
 });
+
+// function getMovie(library) {
+//   if (library.length < 1) {
+//     alertMessage.classList.remove('visually-hidden');
+
+//   } else {
+//     alertMessage.classList.add('visually-hidden');
+
+//   }
+//      library.forEach(movie => {
+//         getMovieFromLib(movie);
+//       });
+// }
+// getMovie(library);

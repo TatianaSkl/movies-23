@@ -6,9 +6,7 @@ const closeBtn = document.querySelector('.modal__close-btn');
 const modalRef = document.querySelector('.modal__wrap');
 const modalListRef = document.querySelector('.cards-film');
 
-// const LibKey = 'myLibrary';
-// const savedMovies = JSON.parse(localStorage.getItem('LibKey')) || [];
-// console.log(savedMovies);
+const LibKey = 'myLibrary';
 
 filmCards.addEventListener('click', onOpenModal);
 closeBtn.addEventListener('click', onCloseModal);
@@ -21,6 +19,7 @@ export function onOpenModal(event) {
   if (!getParentalEl) {
     return;
   }
+
   // записываем id
   const movieId = getParentalEl.dataset.id;
 
@@ -53,38 +52,58 @@ function onEscKeyPress(event) {
   }
 }
 
+function addToLibraryFilm(data) {
+  const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+
+  library.push(data);
+  localStorage.setItem(LibKey, JSON.stringify(library));
+}
+
 // загружаем карточку в модалку
 
-async function loadIntoModal(id) {
+export async function loadIntoModal(idMovie) {
+  const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+
+  const filmIdsArr = library.map(item => item.id);
+
+
   try {
-    const data = await getMovieDetails(id);
+    const data = await getMovieDetails(idMovie);
 
     const createModalCard = createCardMarkup(data);
     modalListRef.innerHTML = createModalCard;
 
     const filmAddBtn = document.querySelector('.film-add__btn');
 
-    filmAddBtn.addEventListener('click', () => {
-      // const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-      // library.find(item => item.id === data.id);
-      // filmAddBtn.textContent = 'Remove from my library';
+    if (filmIdsArr.includes(Number(idMovie))) {
+      filmAddBtn.textContent = 'Remove from my library';
+    } else {
+      filmAddBtn.textContent = 'Add to my library';
+    }
 
+    filmAddBtn.addEventListener('click', () => {
       if (filmAddBtn.textContent === 'Add to my library') {
-        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-        // const existingMovie = library.find(item => item.id === movie.id);
-        library.push(data);
-        localStorage.setItem('movieLibrary', JSON.stringify(library));
+        addToLibraryFilm(data);
 
         filmAddBtn.textContent = 'Remove from my library';
-      }
-      if (filmAddBtn.textContent === 'Remove from my library') {
-        const library = JSON.parse(localStorage.getItem('movieLibrary')) || [];
-        const existingMovie = library.find(item => item.id === data.id);
-        if (existingMovie) {
-          library.splice(existingIndex, 1);
-          localStorage.removeItem('movieLibrary');
-          filmAddBtn.textContent = 'Add to my library';
-        }
+      } else {
+        // получаем массив фильмов из хранилища
+        const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+       
+        // находим фильм по id
+        const filmLS = library.find(item => item.id === data.id);
+       
+        // определяем индекс филма в массиве
+        const indexFilm = library.indexOf(filmLS);
+        
+        // удаляем фильм из массива
+        const deleteFilm = library.splice(indexFilm, 1);
+        
+        // сохраняем новый массив в хранилище
+        localStorage.setItem(LibKey, JSON.stringify(library));
+        filmAddBtn.textContent = 'Add to my library';
+        return;
+        
       }
     });
   } catch (err) {
