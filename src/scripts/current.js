@@ -13,10 +13,4 @@ navLinks.forEach(link => {
     link.classList.remove('current');
   }
 });
-navLinksMob.forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('current');
-  } else {
-    link.classList.remove('current');
-  }
-});
+
