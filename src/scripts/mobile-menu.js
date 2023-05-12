@@ -9,7 +9,7 @@
 
     menuButton.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", !expanded);
-
+    document.body.classList.add("modal-open");
     mobileMenu.classList.toggle("is-open");
     backdrop.classList.toggle("is-hidden");
   });
@@ -17,7 +17,7 @@
   document.addEventListener('click', e => {
     if (backdrop.contains(e.target)) {
       menuButton.classList.toggle("is-open");
-    
+      document.body.classList.remove("modal-open");
       mobileMenu.classList.toggle("is-open");
       backdrop.classList.toggle("is-hidden");
     }
