@@ -7,9 +7,9 @@ import { starRating } from './star-rating';
 const LibKey = 'myLibrary';
 
 const libraryGallery = document.querySelector('.library-cards__list');
-const filmCards = document.querySelector('.js-film');
+// const filmCards = document.querySelector('.js-film');
 const alertMessage = document.querySelector('.alert__message');
-console.log(libraryGallery);
+// console.log(libraryGallery);
 
 // filmCards.addEventListener('click', onOpenModal);
 
@@ -62,41 +62,28 @@ function getMovieFromLib(movie) {
 
 // //TODO: Получить массив фильмов из локального хранилища
 const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-console.log(library);
+// console.log(library);
 
-// if (library.length < 1) {
-  //     alertMessage.classList.remove('visually-hidden');
-  //     return;
-  //   } else {
-  //     alertMessage.classList.add('visually-hidden');
-  //     library.forEach(movie => {
-  //       getMovieFromLib(movie);
-  //     });
-  //   }
+if (library.length < 1) {
+  alertMessage.classList.remove('visually-hidden');
+} else {
+  alertMessage.classList.add('visually-hidden');
+}
 
 library.forEach(movie => {
   getMovieFromLib(movie);
 });
 
-
- 
-
-  
-
-  
-
 // function getMovie(library) {
-//   const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-//   console.log(library);
-
 //   if (library.length < 1) {
 //     alertMessage.classList.remove('visually-hidden');
-//     return;
+
 //   } else {
 //     alertMessage.classList.add('visually-hidden');
-//     library.forEach(movie => {
-//       getMovieFromLib(movie);
-//     });
+
 //   }
+//      library.forEach(movie => {
+//         getMovieFromLib(movie);
+//       });
 // }
 // getMovie(library);

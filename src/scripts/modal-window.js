@@ -22,7 +22,6 @@ export function onOpenModal(event) {
 
   // записываем id
   const movieId = getParentalEl.dataset.id;
-  console.log(movieId);
 
   loadIntoModal(movieId);
 
@@ -64,9 +63,9 @@ function addToLibraryFilm(data) {
 
 export async function loadIntoModal(idMovie) {
   const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-  console.log(library);
+
   const filmIdsArr = library.map(item => item.id);
-  console.log(filmIdsArr);
+
 
   try {
     const data = await getMovieDetails(idMovie);
@@ -90,21 +89,21 @@ export async function loadIntoModal(idMovie) {
       } else {
         // получаем массив фильмов из хранилища
         const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-        console.log(library);
+       
         // находим фильм по id
         const filmLS = library.find(item => item.id === data.id);
-        console.log(filmLS);
+       
         // определяем индекс филма в массиве
         const indexFilm = library.indexOf(filmLS);
-        console.log(indexFilm);
+        
         // удаляем фильм из массива
         const deleteFilm = library.splice(indexFilm, 1);
-        console.log(deleteFilm);
+        
         // сохраняем новый массив в хранилище
         localStorage.setItem(LibKey, JSON.stringify(library));
         filmAddBtn.textContent = 'Add to my library';
         return;
-        // console.log(library);
+        
       }
     });
   } catch (err) {
