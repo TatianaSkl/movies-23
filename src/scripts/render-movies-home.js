@@ -1,9 +1,6 @@
-import {
-  getWeekTrendingMovies,
-  getUpcomingMovies,
-  getMovieDetails,
-} from './movies-api';
+import { getWeekTrendingMovies, getUpcomingMovies, getMovieDetails } from './movies-api';
 import { starRating } from './star-rating';
+const LibKey = 'myLibrary';
 
 export function renderTrending(renderFn, showFn) {
   const container = document.getElementById('trending');
@@ -19,22 +16,21 @@ export function renderUpcoming(renderFn, showFn) {
     const movie = results[index];
     container.innerHTML = showFn(movie);
     starRating();
-    const btn = document.getElementById('btn__upcoming');
-    btn.addEventListener('click', remindMe);
+    const id = movie.id;
+    remindMe(id);
   });
 }
 
 export function showTrending(movies) {
-  return movies.map(
-    ({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
-      return `
+  return movies.map(({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
+    return `
       <li class="trending__item js-card" data-id=${id}>
           <img class="trending__img" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
             <div class="trending__meta">
                 <p class="trending__title">${title}</p> 
                 <p class="trending__genres">${getGenreNames(genre_ids)} | ${
-        release_date.split('-')[0]
-      }</p>
+      release_date.split('-')[0]
+    }</p>
       <span class="film-card__rating">
       <div class="rating">
         <div class="rating__body">
@@ -54,8 +50,7 @@ export function showTrending(movies) {
     </span>
 </div>
       </li>`;
-    }
-  );
+  });
 }
 starRating();
 
@@ -88,10 +83,7 @@ export function showUpcoming(movie) {
 <p class="upcoming__info">Genre(s)</p>
 </div>
 <div class="upcoming__container">
-<p class="upcoming__info upcoming__date">${release_date
-    .split('-')
-    .reverse()
-    .join('.')}</p>
+<p class="upcoming__info upcoming__date">${release_date.split('-').reverse().join('.')}</p>
 <p class="upcoming__info"><span class="vote-background">${vote_average}</span> / <span class="vote-background">${vote_count}</span></p>
 <p class="upcoming__info">${popularity}</p>
 <p class="upcoming__info">${getGenreNames(genre_ids)}</p>
@@ -115,10 +107,30 @@ function getGenreNames(genreIds) {
   return res.join(', ');
 }
 
-function remindMe(evt) {
-  const movieId =
-    document.getElementById('btn__upcoming').attributes['data-id'].value;
-  getMovieDetails(movieId).then(movie => {
-    localStorage.setItem(movieId, JSON.stringify(movie));
-  });
+async function remindMe(idMovie) {
+  const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+  const filmIdsArr = library.map(item => item.id);
+  try {
+    const data = await getMovieDetails(Number(idMovie));
+    const btn = document.getElementById('btn__upcoming');
+
+    if (filmIdsArr.includes(Number(idMovie))) {
+      btn.textContent = 'Remove from my library';
+    } else {
+      btn.textContent = 'Remind me';
+    }
+
+    btn.addEventListener('click', () => {
+      if (btn.textContent === 'Remind me') {
+        const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+        library.push(data);
+        localStorage.setItem(LibKey, JSON.stringify(library));
+        btn.textContent = 'Remove from my library';
+      } else {
+        return;
+      }
+    });
+  } catch (err) {
+    return;
+  }
 }
