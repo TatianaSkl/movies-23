@@ -58,9 +58,8 @@ body {
     width: 30px;
     height: 30px;
     fill: var(--supplemental-color);
-
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
+     
+    border: none;
     background-color: transparent;
 
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,8 +69,24 @@ body {
       fill: var(--accent-color);
       transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-
   }
+}
+
+.light .modal-close{
+  fill: var(--primary-color);
+
+  &:hover {
+      fill: var(--accent-color);
+      transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+.light .modal{
+  background-color: var(--second-color);
+
+  box-shadow: 0px 0px 60px var(--primary-color), 0px 1px 1px var(--primary-color),
+      0px 0px 1px var(--primary-color);
+    border-radius: 10px;
 }
 
 .team__title {
@@ -97,6 +112,15 @@ body {
     margin-bottom: 30px;
     font-size: 30px;
   }
+}
+
+.light .team__title{
+  color: var(--primary-color);
+
+  &:hover,
+    &:focus {
+      color: #ff6b08;
+    }
 }
 
 .team__box {
@@ -132,7 +156,7 @@ body {
     transform: scale(1.05);
   }
 
-  &:hover .team__name{
+  &:hover .team__name {
     color: var(--accent-color);
   }
 
@@ -158,7 +182,7 @@ body {
   border-radius: 50px;
   cursor: default;
 
-  @include tablet{
+  @include tablet {
     height: 140px;
     width: 140px;
     border-radius: 70px;
@@ -180,6 +204,10 @@ body {
   @media screen and (min-width: 1280px) {
     font-size: 22px;
   }
+}
+
+.light .team__name{
+  color: var(--primary-color);
 }
 
 .team__role {
@@ -212,21 +240,37 @@ body {
   }
 }
 
-.team__link{
+.team__link {
   fill: var(--second-color);
   transition: 250ms;
 
-  &:hover{
+  &:hover {
     fill: var(--accent-color);
     transition: 250ms;
   }
 }
 
-.footer__link{
+.light .team__link{
+  fill: var(--primary-color);
+
+  &:hover{
+    fill: var(--accent-color);
+  }
+}
+
+.footer__link {
   color: var(--second-color);
   transition: 250ms;
   &:hover {
-      color: var(--accent-color);
-      transition: 250ms;
-    }
+    color: var(--accent-color);
+    transition: 250ms;
+  }
+}
+
+.light .footer__link {
+  color: var(--primary-color);
+  &:hover {
+    color: var(--accent-color);
+    transition: 250ms;
+  }
 }
