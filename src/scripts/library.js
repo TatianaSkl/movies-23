@@ -1,7 +1,5 @@
-import {
-  onOpenModal
-} from './modal-window';
-import {filmCards } from './modal-window';
+// import { onOpenModal } from './modal-window';
+// import { filmCards } from './modal-window';
 
 import { starRating } from './star-rating';
 // import { getMovieDetails } from './modal-window';
@@ -10,12 +8,12 @@ const LibKey = 'myLibrary';
 
 const libraryGallery = document.querySelector('.library-cards__list');
 const filmCards = document.querySelector('.js-film');
+const alertMessage = document.querySelector('.alert__message');
 console.log(libraryGallery);
 
-filmCards.addEventListener('click', onOpenModal);
+// filmCards.addEventListener('click', onOpenModal);
 
-
-function getMovieFromLibrary(movie) {
+function getMovieFromLib(movie) {
   const { title, poster_path, vote_average, genres, release_date, id } = movie;
 
   const genresName = genres
@@ -66,8 +64,39 @@ function getMovieFromLibrary(movie) {
 const library = JSON.parse(localStorage.getItem(LibKey)) || [];
 console.log(library);
 
+// if (library.length < 1) {
+  //     alertMessage.classList.remove('visually-hidden');
+  //     return;
+  //   } else {
+  //     alertMessage.classList.add('visually-hidden');
+  //     library.forEach(movie => {
+  //       getMovieFromLib(movie);
+  //     });
+  //   }
+
 library.forEach(movie => {
-  getMovieFromLibrary(movie);
-  console.log(movie);
+  getMovieFromLib(movie);
 });
 
+
+ 
+
+  
+
+  
+
+// function getMovie(library) {
+//   const library = JSON.parse(localStorage.getItem(LibKey)) || [];
+//   console.log(library);
+
+//   if (library.length < 1) {
+//     alertMessage.classList.remove('visually-hidden');
+//     return;
+//   } else {
+//     alertMessage.classList.add('visually-hidden');
+//     library.forEach(movie => {
+//       getMovieFromLib(movie);
+//     });
+//   }
+// }
+// getMovie(library);

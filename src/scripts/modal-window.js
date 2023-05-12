@@ -24,26 +24,12 @@ export function onOpenModal(event) {
   const movieId = getParentalEl.dataset.id;
   console.log(movieId);
 
-  // let library = JSON.parse(localStorage.getItem(LibKey)) || [];
-  // console.log(library);
-  // let filmIdsArr = library.map(item => item.id);
-  // console.log(filmIdsArr);
-  // const filmID = filmIdsArr.includes(movieId);
-
-  // if (filmID) {
-  //   filmAddBtn.textContent = 'Remove from my library';
-  // }
-  // else {
-  //   filmAddBtn.textContent = 'Add to my library';
-  // }
   loadIntoModal(movieId);
 
   modBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
   window.addEventListener('keydown', onEscKeyPress);
 }
-
-// Пеоебираем библиотеку хранилища
 
 // закрываем модалку
 function onCloseModal() {
@@ -74,16 +60,12 @@ function addToLibraryFilm(data) {
   localStorage.setItem(LibKey, JSON.stringify(library));
 }
 
-export function getMovieFromLibrary(movieId) {
-  const library = JSON.parse(localStorage.getItem(LibKey)) || {};
-  return library[movieId];
-}
 // загружаем карточку в модалку
 
 export async function loadIntoModal(idMovie) {
-  let library = JSON.parse(localStorage.getItem(LibKey)) || [];
+  const library = JSON.parse(localStorage.getItem(LibKey)) || [];
   console.log(library);
-  let filmIdsArr = library.map(item => item.id);
+  const filmIdsArr = library.map(item => item.id);
   console.log(filmIdsArr);
 
   try {
@@ -94,6 +76,12 @@ export async function loadIntoModal(idMovie) {
 
     const filmAddBtn = document.querySelector('.film-add__btn');
 
+    if (filmIdsArr.includes(Number(idMovie))) {
+      filmAddBtn.textContent = 'Remove from my library';
+    } else {
+      filmAddBtn.textContent = 'Add to my library';
+    }
+
     filmAddBtn.addEventListener('click', () => {
       if (filmAddBtn.textContent === 'Add to my library') {
         addToLibraryFilm(data);
@@ -101,13 +89,13 @@ export async function loadIntoModal(idMovie) {
         filmAddBtn.textContent = 'Remove from my library';
       } else {
         // получаем массив фильмов из хранилища
-        let library = JSON.parse(localStorage.getItem(LibKey)) || [];
+        const library = JSON.parse(localStorage.getItem(LibKey)) || [];
         console.log(library);
         // находим фильм по id
-        let filmLS = library.find(item => item.id === data.id);
+        const filmLS = library.find(item => item.id === data.id);
         console.log(filmLS);
         // определяем индекс филма в массиве
-        let indexFilm = library.indexOf(filmLS);
+        const indexFilm = library.indexOf(filmLS);
         console.log(indexFilm);
         // удаляем фильм из массива
         const deleteFilm = library.splice(indexFilm, 1);

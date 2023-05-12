@@ -4,3 +4,4 @@ import './scripts/getWeekTrendingMoviesInCatalog';
 import './scripts/modal-window';
 import './scripts/search-films';
 import './scripts/current';
+import './scripts/library';
