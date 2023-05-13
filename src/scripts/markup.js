@@ -38,6 +38,7 @@ export function createMarkupFilmsList(moviesData) {
               type="range"
               min="0"
               max="10"
+              step="0.01"
               class="rating__item"
               value="${vote_average}"
               name="rating"
