@@ -1,19 +1,14 @@
 .footer {
-  width: 100%;
-  height: 100px;
   margin-top: auto;
-  padding-top: 28px;
-  padding-bottom: 29px;
+  padding-bottom: 28px;
   text-align: center;
-  background-color: --primary-color;
-
-  @media screen and (min-width: 768px) {
-    height: 79px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  @include tablet {
+    padding-bottom: 40px;
+  }
+  @include desktop {
+    padding-bottom: 80px;
   }
 }
-
 .footer__container {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -21,30 +16,33 @@
     align-items: center;
   }
 }
-
 .footer__text {
-  margin-right: 8px;
-  color: --additional-color;
+  color: var(--additional-color);
   line-height: calc(16 / 14);
-
+  padding-bottom: 8px;
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 0px;
+    font-size: 16px;
+    line-height: 1.19;
   }
 }
-
 .footer__sub {
-  color: --alternate-color;
+  color: var(--additional-color);
   line-height: calc(16 / 14);
   letter-spacing: 0.03em;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 8px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
+    margin-left: 4px;
     font-size: 16px;
-    line-height: calc(19 / 16);
+    line-height: 1.19;
+  }
+  @include desktop {
+    margin-left: 6px;
   }
 }
 
@@ -52,26 +50,39 @@
   margin-left: 10px;
   margin-right: 10px;
   display: block;
-
   animation: Scale 0.7s ease infinite alternate;
 }
 
 .footer__link {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: --alternate-color;
+  color: var(--additional-color);
+  margin-right: 4px;
+  line-height: calc(16 / 14);
+  @include tablet {
+    font-size: 16px;
+    line-height: 1.19;
+  }
+  @include desktop {
+    margin-right: 6px;
+  }
+}
+@keyframes Bounce {
+  0%,
+  100% {
+    transform: translateY(3px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.footer__link-modal {
+  color: var(--accent-color);
   line-height: calc(16 / 14);
   letter-spacing: 0.03em;
+  font-weight: 500;
   cursor: pointer;
-
-  &:hover,
-  &:focus {
-    color: --accent-color;
-  }
-
+  animation: Bounce 1.5s ease-in-out infinite alternate;
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: calc(19 / 16);
-    padding: 0;
   }
 }

@@ -110,6 +110,9 @@ body.light {
   & .footer__text {
     color: var(--alternate-color);
   }
+  & .footer__link {
+    color: var(--alternate-color);
+  }
   & .search-input {
     color: var(--primary-color);
     border: 1px solid var(--alternate-color);
