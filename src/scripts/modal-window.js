@@ -1,5 +1,5 @@
 import { getMovieDetails } from './movies-api';
-// import { renderMovies } from './library';
+// import { getMovieFromLib, renderMoviesList, refs } from './library';
 
 const filmCards = document.querySelector('.js-film');
 const modBackdrop = document.querySelector('.modal-backdrop');
@@ -86,7 +86,6 @@ export async function loadIntoModal(idMovie) {
         addToLibraryFilm(data);
 
         filmAddBtn.textContent = 'Remove from my library';
-        onCloseModal();
       } else {
         // получаем массив фильмов из хранилища
         const library = JSON.parse(localStorage.getItem(LibKey)) || [];
@@ -102,9 +101,15 @@ export async function loadIntoModal(idMovie) {
 
         // сохраняем новый массив в хранилище
         localStorage.setItem(LibKey, JSON.stringify(library));
+        // removeMovieFromLibrary(filmLS);
+        // renderMoviesList();
+        //!==========
         filmAddBtn.textContent = 'Add to my library';
 
-        onCloseModal();
+        library.map(movie => {
+          refs.libraryGallery.innerHTML = '';
+          getMovieFromLib(movie);
+        });
         return;
       }
     });

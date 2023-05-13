@@ -66,18 +66,15 @@ if (library.length < 1) {
   alertMessage.classList.add('visually-hidden');
 }
 
-library.forEach(movie => {
+const markup = library.map(movie => {
   getMovieFromLib(movie);
 });
 
-// export function getMovie() {
-//   const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-// if (library.length < 1) {
-//   alertMessage.classList.remove('visually-hidden');
-// } else {
-//   alertMessage.classList.add('visually-hidden');
-// }
-//   library.forEach(movie => {
+// export function renderMoviesList() {
+//   libraryGallery.innerHTML = '';
+//   let library = JSON.parse(localStorage.getItem(LibKey)) || {};
+
+//   return library.map(movie => {
 //     getMovieFromLib(movie);
 //   });
 // }
