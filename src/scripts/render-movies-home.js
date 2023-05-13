@@ -1,4 +1,8 @@
-import { getWeekTrendingMovies, getUpcomingMovies, getMovieDetails } from './movies-api';
+import {
+  getWeekTrendingMovies,
+  getUpcomingMovies,
+  getMovieDetails,
+} from './movies-api';
 import { starRating } from './star-rating';
 const LibKey = 'myLibrary';
 
@@ -22,15 +26,16 @@ export function renderUpcoming(renderFn, showFn) {
 }
 
 export function showTrending(movies) {
-  return movies.map(({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
-    return `
+  return movies.map(
+    ({ id, title, genre_ids, release_date, poster_path, vote_average }) => {
+      return `
       <li class="trending__item js-card" data-id=${id}>
           <img class="trending__img" src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
             <div class="trending__meta">
                 <p class="trending__title">${title}</p> 
                 <p class="trending__genres">${getGenreNames(genre_ids)} | ${
-      release_date.split('-')[0]
-    }</p>
+        release_date.split('-')[0]
+      }</p>
       <span class="film-card__rating">
       <div class="rating">
         <div class="rating__body">
@@ -39,7 +44,8 @@ export function showTrending(movies) {
             <input
               type="range"
               min="0"
-              max="10"
+              max="100"
+              step="0.1"
               class="rating__item"
               value="${vote_average}"
               name="rating"
@@ -50,7 +56,8 @@ export function showTrending(movies) {
     </span>
 </div>
       </li>`;
-  });
+    }
+  );
 }
 starRating();
 
@@ -83,7 +90,10 @@ export function showUpcoming(movie) {
 <p class="upcoming__info">Genre(s)</p>
 </div>
 <div class="upcoming__container">
-<p class="upcoming__info upcoming__date">${release_date.split('-').reverse().join('.')}</p>
+<p class="upcoming__info upcoming__date">${release_date
+    .split('-')
+    .reverse()
+    .join('.')}</p>
 <p class="upcoming__info"><span class="vote-background">${vote_average}</span> / <span class="vote-background">${vote_count}</span></p>
 <p class="upcoming__info">${popularity}</p>
 <p class="upcoming__info">${getGenreNames(genre_ids)}</p>

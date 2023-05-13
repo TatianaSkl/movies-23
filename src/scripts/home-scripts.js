@@ -14,24 +14,3 @@ getGenres().then(data => {
   renderUpcoming(getUpcomingMovies, showUpcoming);
   const addBtnRef = document.querySelector('#btn__upcoming');
 });
-
-// addBtnRef.addEventListener('click', () => {
-//   const addBtnRef = event.target.closest('#btn__upcoming');
-
-//   if (!addBtnRef) {
-//     return;
-//   }
-
-//   // записываем id
-//   const btnId = getParentalEl.dataset.id;
-
-//   const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-
-//   const filmIdsArr = library.map(item => item.id);
-
-//   if (filmIdsArr.includes(Number(btnId))) {
-//     filmAddBtn.textContent = 'Remove from my library';
-//   } else {
-//     filmAddBtn.textContent = 'Remind me';
-//   }
-// });
