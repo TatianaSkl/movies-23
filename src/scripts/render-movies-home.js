@@ -126,6 +126,8 @@ async function remindMe(idMovie) {
         library.push(data);
         localStorage.setItem(LibKey, JSON.stringify(library));
         btn.textContent = 'Added to my library';
+        btn.disabled = true;
+        btn.classList.add('disabled');
       } else {
         return;
       }
