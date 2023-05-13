@@ -11,6 +11,7 @@ const alertMessage = document.querySelector('.alert__message');
 
 export function getMovieFromLib(movie) {
   const { title, poster_path, vote_average, genres, release_date, id } = movie;
+  // libraryGallery.innerHTML = '';
 
   const genresName = genres
     .map(genre => genre.name)
@@ -71,7 +72,6 @@ const markup = library.map(movie => {
 });
 
 // export function renderMoviesList() {
-//   libraryGallery.innerHTML = '';
 //   let library = JSON.parse(localStorage.getItem(LibKey)) || {};
 
 //   return library.map(movie => {

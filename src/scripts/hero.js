@@ -39,7 +39,8 @@ export function renderHero() {
             <input
               type="range"
               min="0"
-              max="10"
+              max="100"
+              step="0.1"
               class="rating__item"
               value="${vote_average}"
               name="hero-rating"
@@ -64,7 +65,8 @@ export function renderHero() {
             <input
               type="range"
               min="0"
-              max="10"
+              max="100"
+              step="0.1"
               class="rating__item"
               value="${vote_average}"
               name="hero-rating"
@@ -79,7 +81,9 @@ export function renderHero() {
       `;
         starRating();
         const openModalHeroBtn = document.getElementById('modal-hero-open');
-        const openModalHeroBtnMob = document.getElementById('modal-hero-open-mob');
+        const openModalHeroBtnMob = document.getElementById(
+          'modal-hero-open-mob'
+        );
         openModalHeroBtn.addEventListener('click', () => {
           showMovieTrailer(id);
           onOpenModal();
