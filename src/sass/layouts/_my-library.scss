@@ -1,3 +1,14 @@
+.library-cards {
+  padding: 40px 0;
+  @include tablet {
+    padding-top: 92px;
+    padding-bottom: 60px;
+  }
+  @include desktop {
+    padding-top: 117px;
+    padding-bottom: 96px;
+  }
+}
 .library-cards__sorry {
   text-align: center;
   width: 280px;
@@ -35,14 +46,12 @@
   margin-left: auto;
   margin-right: auto;
   padding: 12px, 24px;
-  margin-bottom: 42px;
   font-size: 12px;
   line-height: 1.16;
   color: var(--primary-color);
 
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     color: var(--accent-color);
@@ -51,13 +60,11 @@
   }
 
   @include tablet {
-    margin-bottom: 60px;
     font-size: 14px;
     line-height: 1.43;
   }
 
   @include desktop {
-    margin-bottom: 108px;
     font-size: 18px;
     line-height: 1.5;
   }
@@ -90,4 +97,5 @@
   &:hover,
   &:focus {
     color: var(--accent-color);
-  }}
+  }
+}

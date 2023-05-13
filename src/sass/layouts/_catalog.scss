@@ -6,10 +6,9 @@
     padding-top: 60px;
     padding-bottom: 60px;
   }
-
-  @mixin desktop {
+  @include desktop {
     padding-top: 80px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
 }
 
@@ -38,7 +37,7 @@ input::placeholder {
 
   background-color: transparent;
 
-  &:focus{
+  &:focus {
     border: 1px dashed var(--accent-color);
     transition: 250ms;
   }
@@ -66,13 +65,11 @@ input::placeholder {
   stroke: var(--second-color);
   fill: none;
   cursor: pointer;
-  
 
-  & .search-btn__icon{
+  & .search-btn__icon {
     transform: scale(1);
     transition: 700ms;
   }
-
 
   &:hover {
     border: 1px solid var(--accent-color);
@@ -82,10 +79,9 @@ input::placeholder {
     background: transparent;
   }
 
-  &:hover .search-btn__icon{
-  transform: scale(1.4);
-  transition: 500ms;
-   
+  &:hover .search-btn__icon {
+    transform: scale(1.4);
+    transition: 500ms;
   }
 
   @include tablet {
@@ -94,10 +90,10 @@ input::placeholder {
   }
 }
 
-.light .search-btn{
+.light .search-btn {
   stroke: var(--primary-color);
 
-  &:hover{
+  &:hover {
     stroke: var(--accent-color);
   }
 }
@@ -282,9 +278,7 @@ input::placeholder {
   align-items: center;
 }
 
-.light
-  #pagination.tui-pagination.catalog-pagination
-  .tui-page-btn.tui-is-disabled.tui-first,
+.light #pagination.tui-pagination.catalog-pagination .tui-page-btn.tui-is-disabled.tui-first,
 #pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-prev,
 #pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-next,
 #pagination.tui-pagination .tui-page-btn.tui-is-disabled.tui-last {
