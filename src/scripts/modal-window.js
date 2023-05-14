@@ -83,33 +83,21 @@ export async function loadIntoModal(idMovie) {
     filmAddBtn.addEventListener('click', () => {
       if (filmAddBtn.textContent === 'Add to my library') {
         addToLibraryFilm(data);
-
         filmAddBtn.textContent = 'Remove from my library';
       } else {
-        // получаем массив фильмов из хранилища
         const library = JSON.parse(localStorage.getItem(LibKey)) || [];
-
-        // находим фильм по id
-        const filmLS = library.find(item => item.id === data.id);
-
-        // определяем индекс филма в массиве
-        const indexFilm = library.indexOf(filmLS);
-
-        // удаляем фильм из массива
-        const deleteFilm = library.splice(indexFilm, 1);
-
-        // сохраняем новый массив в хранилище
-        localStorage.setItem(LibKey, JSON.stringify(library));
-        // renderMoviesList();
-        //!==========
+        const index = library.findIndex(item => item.id === data.id);
+        if (index !== -1) {
+          library.splice(index, 1);
+          localStorage.setItem(LibKey, JSON.stringify(library));
+        }
         filmAddBtn.textContent = 'Add to my library';
-
-        return;
+        onCloseModal();
+        location.reload();
       }
     });
   } catch (err) {
-    modalListRef.innerHTML =
-      '<div class="modal__empty">Sorry, info is unavailable</div>';
+    modalListRef.innerHTML = '<div class="modal__empty">Sorry, info is unavailable</div>';
     return;
   }
 }
